@@ -1,0 +1,88 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: #444444;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* HEADERNUOVO */
+
+.bg-costum{
+	background-color:#776CF5;
+}
+
+a.navbar-brand{
+	color: white;
+	text-decoration:underline;
+}
+
+a.navbar-brand:visited{
+	color:black;
+}
+
+/* HEADER */
+
+a#logo{
+	font-weight:bold;
+	color: white;
+}
+
+#headerNav{
+	background-color:#62A6FA;
+	position:relative;
+}
+
+#navbarSupportedContent{
+	position: absolute;
+    top: 0; 
+    right: 0;
+}
+
+/* FOOTER */
+
+#footerDiv{
+	background-color:#776CF5;
+}
+
+#footerAnchor{
+	color:white;
+}
+
+#footerAnchor:hover{
+	color:#80ffff;
+}
+
+.payment-card img {
+    border-radius: 5%;
+    width: 100%;
+    min-width: 30px;
+    max-width: 60px;
+}
+
+li{
+	display:inline;
+	 margin-right: 10px;
+}
+
+.divider {
+    border: none;
+    height: 1px;
+    background-color: #d0d0d0;
+    margin: 10px 0;
+}
+
+ .F-logos {
+    text-align: center;
+    background-color: white;
+  }
+
+/* --- INDEX --- */
+
