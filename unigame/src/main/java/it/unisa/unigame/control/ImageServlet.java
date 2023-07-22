@@ -25,10 +25,9 @@ public class ImageServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nomeImg = request.getParameter("immagine");
-		System.out.println("Sono nella servlet");
-		System.out.println("Nome immagine:" + nomeImg);
-		if (!nomeImg.contains("prodotto")) { //immagine videogioco
+		if (nomeImg.contains("video")) { //immagine videogioco
 			String path = getServletContext().getRealPath("/"+"images"+"/"+"Videogioco"+File.separator+nomeImg);
+			System.out.println("percorso immagine: " + path);
 			response.setContentType("/image/*"); //setto il tipo di contenuto restituito
 			File file = new File(path);
 			if(!file.exists()) {
@@ -54,6 +53,6 @@ public class ImageServlet extends HttpServlet {
 				is.close();
 			}
 		}
-	}
-
+	} 
+    
 }
