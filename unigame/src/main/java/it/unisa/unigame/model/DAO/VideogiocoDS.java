@@ -29,7 +29,7 @@ static final String  TABLE_NAME= "videogioco";
 		Connection connection=null;
 		PreparedStatement preparedStmt=null;
 		
-		String insertSQL = "INSERT INTO "+ VideogiocoDS.TABLE_NAME + "(ID,NOME, PREZZO, QUANTITà,PEGI,ANNO_PRODUZIONE, DISPONIBILE, PRODUTTORE)"+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		String insertSQL = "INSERT INTO "+ VideogiocoDS.TABLE_NAME + "(ID, NOME, PREZZO, QUANTITA, PEGI, ANNO_PRODUZIONE, DISPONIBILE, PRODUTTORE)"+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		try {
 			connection = ds.getConnection();
@@ -42,7 +42,7 @@ static final String  TABLE_NAME= "videogioco";
 			preparedStmt.setString(5, bean.getPegi().name());
 			preparedStmt.setInt(6, bean.getAnno_produzione());
 			preparedStmt.setBoolean(7, bean.isDisponibile());
-			preparedStmt.setString(7, bean.getProduttore());
+			preparedStmt.setString(8, bean.getProduttore());
 
 			
 			preparedStmt.executeUpdate();

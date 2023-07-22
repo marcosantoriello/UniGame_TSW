@@ -17,6 +17,19 @@ public class VideogiocoBean implements Serializable{
 	private int anno_produzione;
 	private String produttore;
 	
+	public VideogiocoBean(int id, String nome, int prezzo, int quantità, boolean disponibile, Pegi pegi,
+			int anno_produzione, String produttore) {
+		
+		this.id = id;
+		this.nome = nome;
+		this.prezzo = prezzo;
+		this.quantità = quantità;
+		this.disponibile = disponibile;
+		this.pegi = pegi;
+		this.anno_produzione = anno_produzione;
+		this.produttore = produttore;
+	}
+
 	public VideogiocoBean() {
 		this.id=0;
 		this.nome=null;

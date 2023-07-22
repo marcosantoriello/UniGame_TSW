@@ -59,7 +59,7 @@ CREATE TABLE software_house(
 CREATE TABLE videogioco(
     id BIGINT NOT NULL,
     nome VARCHAR(50) NOT NULL,
-    prezzo DECIMAL(5, 2) NOT NULL,
+    prezzo int NOT NULL,
     quantita int NOT NULL,
     pegi enum('tre', 'sette', 'dodici', 'sedidci', 'diciotto'),
     anno_produzione int,

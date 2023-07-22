@@ -17,10 +17,10 @@ public class SoftwareHouseBean implements Serializable{
 		fondazione = null;
 	}
 	
-	public SoftwareHouseBean(String nome, String loc, LocalDate fond) {
+	public SoftwareHouseBean(String nome, String locazione, LocalDate fondazione) {
 		this.nome = nome;
-		locazione = loc;
-		fondazione = fond;
+		this.locazione = locazione;
+		this.fondazione = fondazione;
 	}
 
 	public String getNome() {
