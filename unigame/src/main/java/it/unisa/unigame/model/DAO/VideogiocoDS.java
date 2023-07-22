@@ -68,7 +68,7 @@ static final String  TABLE_NAME= "videogioco";
 		PreparedStatement preparedStmt = null;
 		
 		String updateSQl = "UPDATE " + VideogiocoDS.TABLE_NAME
-				+ "SET ID = ?, NOME = ?, PREZZO = ?, QUANTITà = ?,PEGI= ?,ANNO_PRODUZIONE= ?, DISPONIBILE= ?, PRODUTTORE= ?, WHERE ID = ?";
+				+ "SET ID = ?, NOME = ?, PREZZO = ?, QUANTITA = ?,PEGI= ?,ANNO_PRODUZIONE= ?, DISPONIBILE= ?, PRODUTTORE= ?, WHERE ID = ?";
 		
 		try {
 			connection = ds.getConnection();
@@ -152,7 +152,7 @@ static final String  TABLE_NAME= "videogioco";
 				bean.setId(rs.getInt("id"));
 				bean.setNome(rs.getString("nome"));
 				bean.setPrezzo(rs.getFloat("prezzo"));
-				bean.setQuantità(rs.getInt("quantità"));
+				bean.setQuantità(rs.getInt("quantita"));
 				bean.setPegi(Pegi.valueOf(rs.getString("pegi")));
 				bean.setAnno_produzione(rs.getInt("anno_produzione"));
 				bean.setDisponibilità(rs.getBoolean("disponibile"));
@@ -198,7 +198,7 @@ static final String  TABLE_NAME= "videogioco";
 				bean.setId(rs.getInt("id"));
 				bean.setNome(rs.getString("nome"));
 				bean.setPrezzo(rs.getFloat("prezzo"));
-				bean.setQuantità(rs.getInt("quantità"));
+				bean.setQuantità(rs.getInt("quantita"));
 				bean.setPegi(Pegi.valueOf(rs.getString("pegi")));
 				bean.setAnno_produzione(rs.getInt("anno_produzione"));
 				bean.setDisponibilità(rs.getBoolean("disponibile"));
