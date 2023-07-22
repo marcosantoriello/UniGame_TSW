@@ -34,7 +34,7 @@
           						Negozio
         					</a>
         					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          						<a class="dropdown-item" href="Catalogo.jsp">Videogiochi</a>
+          						<a class="dropdown-item" href="#">Videogiochi</a>
           						<a class="dropdown-item" href="#">Gadgets</a>
         					</div>
         				</li>
