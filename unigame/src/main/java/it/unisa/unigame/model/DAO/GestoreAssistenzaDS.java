@@ -44,7 +44,7 @@ private static final String TABLE_NAME = "gestore_assistenza";
 			preparedStmt.setString(7, gest.getRuolo());
 			preparedStmt.setInt(8, gest.getRetribuzione_annuale());
 			
-			preparedStmt.executeQuery();
+			preparedStmt.executeUpdate();
 			
 			connection.setAutoCommit(false);
 			connection.commit();

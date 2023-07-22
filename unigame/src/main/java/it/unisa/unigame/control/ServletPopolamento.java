@@ -14,6 +14,7 @@ import javax.sql.DataSource;
 
 import it.unisa.unigame.model.DAO.*;
 import it.unisa.unigame.model.bean.*;
+import it.unisa.unigame.model.bean.TicketBean.Categoria;
 import it.unisa.unigame.model.bean.VideogiocoBean.Pegi;
 
 /**
@@ -39,9 +40,42 @@ public class ServletPopolamento extends HttpServlet {
 		DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
 		
 		//Datasources
+		AmministratoreDS ammDs = new AmministratoreDS(ds);
+		GestoreAssistenzaDS gestDS = new GestoreAssistenzaDS(ds);
+		ClienteDS clDS = new ClienteDS(ds);
+		TelefonoDS telDS = new TelefonoDS(ds);
 		VideogiocoDS vidDs = new VideogiocoDS(ds);
 		SoftwareHouseDS shDs = new SoftwareHouseDS(ds);
+		ProdottoFisicoDS prodDS = new ProdottoFisicoDS(ds);
+		TicketDS tDS = new TicketDS(ds);
+		RecensioneDS rDS = new RecensioneDS(ds);
+		OrdineDS orDS = new OrdineDS(ds);
+		ComprendeOPDS opDS = new ComprendeOPDS(ds);
+		ComprendeOVDS ovDS = new ComprendeOVDS(ds);
 		
+		
+		//Amministratori
+		AmministratoreBean amm1 = new AmministratoreBean("CSCCHR80A41H703P", "Chiara", "Coscarelli", "chiara_cos", "c.coscarelli@studenti.unisa.it", "Miao", 50000);
+		AmministratoreBean amm2 = new AmministratoreBean("MRANLT80A41F138T", "Nicoletta", "Mauro", "nicas", "n.mauro3@studenti.unisa.it", "Bau", 50000);
+		AmministratoreBean amm3 = new AmministratoreBean("SNTMRC80A01F138E", "Marco", "Santoriello", "marcus", "m.santoriello37@studenti.unisa.it", "Woof", 50000);
+		
+		//Gestori Assistenza
+		GestoreAssistenzaBean gest1 = new GestoreAssistenzaBean("PRTPQL80A01H501C", "Pasquale", "Pratico", "PasqP", "Pratico09@gmail.com", "habuelo", 1500);
+		GestoreAssistenzaBean gest2 = new GestoreAssistenzaBean("MMBNRC80A01F138W", "Enrico", "Mambo", "EnriMam", "Mambo98@gmail.com", "Perke", 1200);
+		
+		//Clienti
+		ClienteBean cl1 = new ClienteBean("RSSMRA03A18D615L", "Mario", "Rossi", "MarioRos", "Mario09@gmail.com", "Mariobros09?", "Strada statale 98 n. 23", LocalDate.of(1999, 9, 15));
+		ClienteBean cl2 = new ClienteBean("VRDPPL80D13F138U", "Pierpaolo", "Verdi", "PierpV", "pierfuria@gmail.com", "Piervinci32", "Licinella n. 78", LocalDate.of(2002, 2, 6));
+		ClienteBean cl3 = new ClienteBean("CRSBCH80A01H501J", "Cristina", "Bianchi", "CrisBi", "Cricri03@gmail.com", "Karen89", "Campo sportivo n. 65", LocalDate.of(2005, 4, 10));
+		ClienteBean cl4 = new ClienteBean("TRRRRT80A01H703E", "Roberto", "Della Torre", "RobDT", "RoberTower98@gmail.com", "Milan23", "Giuseppe Garibaldi n. 19", LocalDate.of(2000, 11, 25));
+		ClienteBean cl5 = new ClienteBean("RFFDNC05A54H501O", "Raffaella", "Domenichino", "RaffDom", "Ohraffy90@gmail.com", "MVM87!", "Via Pacchianella n. 76", LocalDate.of(2010, 7, 7));
+		
+		//Telefono
+		TelefonoBean tel1 = new TelefonoBean(3478923561L, "RSSMRA03A18D615L");
+		TelefonoBean tel2 = new TelefonoBean(3267810342L, "VRDPPL80D13F138U");
+		TelefonoBean tel3 = new TelefonoBean(3792611712L, "CRSBCH80A01H501J");
+		TelefonoBean tel4 = new TelefonoBean(3221411583L, "TRRRRT80A01H703E");
+		TelefonoBean tel5 = new TelefonoBean(3476791862L, "RFFDNC05A54H501O");
 		
 		//Software-houses
 		SoftwareHouseBean sh1 = new SoftwareHouseBean("Bethesda", "USA", LocalDate.of(1986, 7, 10));
@@ -49,17 +83,6 @@ public class ServletPopolamento extends HttpServlet {
 		SoftwareHouseBean sh3 = new SoftwareHouseBean("Epic Games", "USA", LocalDate.of(1991, 1, 15));
 		SoftwareHouseBean sh4 = new SoftwareHouseBean("Rockstar Games", "USA", LocalDate.of(1998, 12, 1));
 		SoftwareHouseBean sh5 = new SoftwareHouseBean("Ubisoft", "France", LocalDate.of(1986, 3, 28));
-		
-		
-		try {
-			shDs.doSave(sh1);
-			shDs.doSave(sh2);
-			shDs.doSave(sh3);
-			shDs.doSave(sh4);
-			shDs.doSave(sh5);
-		} catch(SQLException e) {
-			
-		}
 		
 		//Videogiochi
 		VideogiocoBean vid1 = new VideogiocoBean(894354, "Skyrim", 40, 10, true, Pegi.diciotto, 2011,"Bethesda");
@@ -83,8 +106,56 @@ public class ServletPopolamento extends HttpServlet {
 		VideogiocoBean vid19 = new VideogiocoBean(228491, "The Division 2", 35, 23, true, Pegi.sedici, 2019, "Ubisoft");
 		VideogiocoBean vid20 = new VideogiocoBean(222544, "Assassin's Creed: Odyssey", 65, 8, true, Pegi.diciotto, 2018, "Ubisoft");
 		
+		//Prodotti Fisici
+		ProdottoFisicoBean prod1 = new ProdottoFisicoBean(23, "Funko Pop Taz", 16, 3, true);
+		ProdottoFisicoBean prod2 = new ProdottoFisicoBean(234, "Peluche Pokemon Charmander", 25, 5, true);
+		ProdottoFisicoBean prod3 = new ProdottoFisicoBean(177, "Peluche Pokemon Charmander", 79, 4, true);
+		ProdottoFisicoBean prod4 = new ProdottoFisicoBean(14, "Cable guy Crash", 29, 2, true);
+		ProdottoFisicoBean prod5 = new ProdottoFisicoBean(90, "Astuccio Fortnite", 17, 5, true);
+		ProdottoFisicoBean prod6 = new ProdottoFisicoBean(89, "Xbox Stereo Headset", 49, 0, false);
+		ProdottoFisicoBean prod7 = new ProdottoFisicoBean(89, "Zaino Pokemon", 22,0 , false);
+		
+		//Tickets
+		TicketBean tick1 = new TicketBean(01, LocalDate.of(2023, 2, 26), "RSSMRA03A18D615L", "PRTPQL80A01H501C", Categoria.ordine, "Salve, vorrei sapere a che punto è l’ordine che ho effettuato in data 20/02/23", true);
+		TicketBean tick1 = new TicketBean(01, LocalDate.of(2023, 2, 26), "RSSMRA03A18D615L", "PRTPQL80A01H501C", Categoria.ordine, "Salve, posso sapere l’ordine con id 2376 a che punto è?", false);
+		TicketBean tick1 = new TicketBean(01, LocalDate.of(2023, 2, 26), "RSSMRA03A18D615L", "PRTPQL80A01H501C", Categoria.ordine, "Buon pomeriggio, mi scuso per il disturbo ma la chiave di attivazione che ho acquistato mi dà un errore", true);
+		
+		
 		
 		try {
+			ammDs.doSave(amm1);
+			ammDs.doSave(amm2);
+			ammDs.doSave(amm3);
+			
+			gestDS.doSave(gest1);
+			gestDS.doSave(gest2);
+			
+			clDS.doSave(cl1);
+			clDS.doSave(cl2);
+			clDS.doSave(cl3);
+			clDS.doSave(cl4);
+			clDS.doSave(cl5);
+			
+			telDS.doSave(tel1);
+			telDS.doSave(tel1);
+			telDS.doSave(tel1);
+			telDS.doSave(tel1);
+			telDS.doSave(tel1);
+			
+			prodDS.doSave(prod1);
+			prodDS.doSave(prod2);
+			prodDS.doSave(prod3);
+			prodDS.doSave(prod4);
+			prodDS.doSave(prod5);
+			prodDS.doSave(prod6);
+			prodDS.doSave(prod7);
+			
+			shDs.doSave(sh1);
+			shDs.doSave(sh2);
+			shDs.doSave(sh3);
+			shDs.doSave(sh4);
+			shDs.doSave(sh5);
+			
 			vidDs.doSave(vid1);
 			vidDs.doSave(vid2);
 			vidDs.doSave(vid3);

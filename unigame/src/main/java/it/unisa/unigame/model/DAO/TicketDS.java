@@ -39,7 +39,7 @@ public class TicketDS implements Ticket{
 			preparedStmt.setTimestamp(2, Timestamp.valueOf(bean.getData_e_ora()));
 			preparedStmt.setString(3, bean.getCliente());
 			preparedStmt.setString(4, bean.getGestore());
-			preparedStmt.setString(5, bean.getCategory().name());
+			preparedStmt.setString(5, bean.getCategory().toString());
 			preparedStmt.setString(6, bean.getMessaggio());
 			preparedStmt.setBoolean(7, bean.isRisolto());
 			
@@ -77,7 +77,7 @@ public class TicketDS implements Ticket{
 			preparedStmt.setTimestamp(2, Timestamp.valueOf(bean.getData_e_ora()));
 			preparedStmt.setString(3, bean.getCliente());
 			preparedStmt.setString(4, bean.getGestore());
-			preparedStmt.setString(5, bean.getCategory().name());
+			preparedStmt.setString(5, bean.getCategory().toString());
 			preparedStmt.setString(6, bean.getMessaggio());
 			preparedStmt.setBoolean(7, bean.isRisolto());
 			

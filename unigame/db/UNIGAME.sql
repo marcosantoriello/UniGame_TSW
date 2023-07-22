@@ -61,7 +61,7 @@ CREATE TABLE videogioco(
     nome VARCHAR(50) NOT NULL,
     prezzo int NOT NULL,
     quantita int NOT NULL,
-    pegi enum('tre', 'sette', 'dodici', 'sedidci', 'diciotto'),
+    pegi varchar(25),
     anno_produzione int,
     disponibile boolean NOT NULL,
     produttore VARCHAR(50) NOT NULL,
@@ -72,7 +72,7 @@ CREATE TABLE videogioco(
 CREATE TABLE prodotto_fisico(
     id BIGINT NOT NULL,
     nome VARCHAR(50) NOT NULL,
-    prezzo DECIMAL(5, 2) NOT NULL,
+    prezzo int NOT NULL,
     quantita int NOT NULL,
     disponibile boolean NOT NULL,
     PRIMARY KEY(id)
@@ -90,7 +90,7 @@ CREATE TABLE ticket(
     data_e_ora DATETIME NOT NULL,
     cliente VARCHAR(16) NOT NULL,
     gest_ass VARCHAR(16) NOT NULL,
-    categoria enum('account', 'pagamento', 'ordine', 'altro') NOT NULL,
+    categoria VARCHAR(20) NOT NULL,
     messaggio VARCHAR(500) NOT NULL,
     risolto boolean NOT NULL,
     PRIMARY KEY(num_ticket),

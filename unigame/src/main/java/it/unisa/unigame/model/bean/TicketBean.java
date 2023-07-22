@@ -9,7 +9,7 @@ public class TicketBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private int num_ticket;
-	private LocalDateTime data_e_ora;
+	private LocalDate data_e_ora;
 	private String cliente;
 	private String gestore;
 	public enum Categoria{account, pagamento, ordine, altro};
@@ -27,7 +27,7 @@ public class TicketBean implements Serializable{
 		this.risolto=false;
 	}
 	
-	public TicketBean(int num, LocalDateTime data, String cliente, String gest, Categoria cat, String messaggio, boolean ris) {
+	public TicketBean(int num, LocalDate data, String cliente, String gest, Categoria cat, String messaggio, boolean ris) {
 		this.num_ticket=num;
 		this.data_e_ora=data;
 		this.cliente=cliente;
@@ -45,7 +45,7 @@ public class TicketBean implements Serializable{
 		this.num_ticket = num_ticket;
 	}
 
-	public LocalDateTime getData_e_ora() {
+	public LocalDate getData_e_ora() {
 		return this.data_e_ora;
 	}
 

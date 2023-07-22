@@ -14,7 +14,7 @@ import it.unisa.unigame.model.interfaceDS.Telefono;
 
 public class TelefonoDS implements Telefono {
 	
-private static final String TABLE_NAME = "telefono";
+private static final String TABLE_NAME = "num_telefono";
 	
 	private DataSource ds = null;
 	
@@ -32,7 +32,7 @@ private static final String TABLE_NAME = "telefono";
 		try {
 			connection = ds.getConnection();
 			preparedStmt = connection.prepareStatement(insertSQL);
-			preparedStmt.setInt(1, tel.getNumero());
+			preparedStmt.setLong(1, tel.getNumero());
 			preparedStmt.setString(2, tel.getCliente_cf());
 			preparedStmt.execute();
 			
@@ -62,7 +62,7 @@ private static final String TABLE_NAME = "telefono";
 			connection = ds.getConnection();
 			preparedStmt = connection.prepareStatement(updateSQL);
 			preparedStmt.setString(1, tel.getCliente_cf());
-			preparedStmt.setInt(2, tel.getNumero()); 
+			preparedStmt.setLong(2, tel.getNumero()); 
 			preparedStmt.executeUpdate();
 			
 			connection.setAutoCommit(false);

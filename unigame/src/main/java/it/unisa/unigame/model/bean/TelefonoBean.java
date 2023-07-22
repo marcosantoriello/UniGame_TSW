@@ -7,7 +7,7 @@ public class TelefonoBean implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	private int numero;
+	private long numero;
 	private String cliente_cf;
 	
 	public TelefonoBean() {
@@ -15,12 +15,12 @@ public class TelefonoBean implements Serializable{
 		cliente_cf = "";
 	}
 
-	public TelefonoBean(int num, String cf) {
+	public TelefonoBean(long num, String cf) {
 		numero = num;
 		cliente_cf = cf;
 	}
 	
-	public int getNumero() {
+	public long getNumero() {
 		return numero;
 	}
 

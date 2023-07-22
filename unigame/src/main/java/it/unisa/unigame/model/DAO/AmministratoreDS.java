@@ -26,7 +26,7 @@ public class AmministratoreDS implements Amministratore {
 		Connection connection = null;
 		PreparedStatement preparedStmt = null;
 		
-		String insertSQL = "INSERT INTO" + AmministratoreDS.TABLE_NAME 
+		String insertSQL = "INSERT INTO " + AmministratoreDS.TABLE_NAME 
 				+ " (CODICE_FISCALE, NOME, COGNOME, USERNAME, EMAIL, PASS_WORD, RUOLO, RETRIBUZIONE_ANNUALE) "
 				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		

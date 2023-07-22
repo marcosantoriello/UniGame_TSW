@@ -9,7 +9,7 @@ public class ProdottoFisicoBean implements Serializable{
 	
 	private int id;
 	private String nome;
-	private float prezzo;
+	private int prezzo;
 	private int quantità;
 	private boolean disponibile;
 
@@ -21,7 +21,7 @@ public class ProdottoFisicoBean implements Serializable{
 		this.disponibile=false;
 	}
 
-	public ProdottoFisicoBean(int id, String nome, float prezzo, int qta, boolean disp) {
+	public ProdottoFisicoBean(int id, String nome, int prezzo, int qta, boolean disp) {
 		this.id=id;
 		this.nome=nome;
 		this.prezzo=prezzo;
@@ -45,11 +45,11 @@ public class ProdottoFisicoBean implements Serializable{
 		return this.nome;
 	}
 	
-	public void setPrezzo(float price) {
+	public void setPrezzo(int price) {
 		this.prezzo=price;
 	}
 	
-	public float getPrezzo() {
+	public int getPrezzo() {
 		return this.prezzo;
 	}
 	

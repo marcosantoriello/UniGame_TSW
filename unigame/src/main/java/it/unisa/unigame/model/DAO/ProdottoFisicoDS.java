@@ -37,7 +37,7 @@ public class ProdottoFisicoDS implements ProdottoFisico{
 			
 			preparedStmt.setInt(1, bean.getId());
 			preparedStmt.setString(2, bean.getNome());
-			preparedStmt.setFloat(3, bean.getPrezzo());
+			preparedStmt.setInt(3, bean.getPrezzo());
 			preparedStmt.setInt(4, bean.getQuantità());
 			preparedStmt.setBoolean(5, bean.isDisponibile());
 			
@@ -73,7 +73,7 @@ public class ProdottoFisicoDS implements ProdottoFisico{
 			
 			preparedStmt.setInt(1, bean.getId());
 			preparedStmt.setString(2, bean.getNome());
-			preparedStmt.setFloat(3, bean.getPrezzo());
+			preparedStmt.setInt(3, bean.getPrezzo());
 			preparedStmt.setInt(4, bean.getQuantità());
 			preparedStmt.setBoolean(5, bean.isDisponibile());
 			
@@ -146,7 +146,7 @@ public class ProdottoFisicoDS implements ProdottoFisico{
 			while (rs.next()) {
 				bean.setId(rs.getInt("id"));
 				bean.setNome(rs.getString("nome"));
-				bean.setPrezzo(rs.getFloat("prezzo"));
+				bean.setPrezzo(rs.getInt("prezzo"));
 				bean.setQuantità(rs.getInt("quantità"));
 				bean.setDisponibilità(rs.getBoolean("disponibile"));
 			}
@@ -190,7 +190,7 @@ public class ProdottoFisicoDS implements ProdottoFisico{
 				
 				bean.setId(rs.getInt("id"));
 				bean.setNome(rs.getString("nome"));
-				bean.setPrezzo(rs.getFloat("prezzo"));
+				bean.setPrezzo(rs.getInt("prezzo"));
 				bean.setQuantità(rs.getInt("quantità"));
 				bean.setDisponibilità(rs.getBoolean("disponibile"));
 				

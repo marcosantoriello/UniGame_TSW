@@ -28,8 +28,8 @@ public class ClienteDS implements Cliente{
 		Connection connection = null;
 		PreparedStatement preparedStmt = null;
 		
-		String insertSQL = "INSERT INTO" + 	ClienteDS.TABLE_NAME
-				+ " (CF_CLIENTE,NOME, COGNOME, USERNAME, EMAIL, PASS_WORD, RUOLO, IND_FATTURAZIONE, DATA_DI_NASCITA, CONTA_ORDINI_REL, SOSPESO) "
+		String insertSQL = "INSERT INTO " + 	ClienteDS.TABLE_NAME
+				+ " (CODICE_FISCALE, NOME, COGNOME, USERNAME, EMAIL, PASS_WORD, RUOLO, IND_FATTURAZIONE, DATA_DI_NASCITA, CONTA_ORDINE_REL, SOSPESO) "
 				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		try {
