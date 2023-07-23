@@ -56,7 +56,7 @@
 				  <img class="card-img-top" src="ImageServlet?immagine=video_693302.jpg" alt="Card image cap">
 				  <div class="card-body">
 				    <h5 class="card-title">Grand Theft Auto: V</h5>
-				    <a href="#" class="btn btn-primary">Visualizza</a>
+				    <a href="prodottoVideogioco.jsp?id=693302" class="btn btn-primary">Visualizza</a>
 				  </div>
 				</div>
 				<!-- VIDEOGIOCO -->
