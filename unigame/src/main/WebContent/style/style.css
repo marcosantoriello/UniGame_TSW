@@ -12,6 +12,15 @@ a:hover {
     color: inherit;
 }
 
+.image-piccola{
+	transition: 0.25s;
+}
+
+.image-grande{
+	width: 550px!important;
+
+}
+
 
 /* HEADERNUOVO */
 
@@ -85,4 +94,5 @@ li{
   }
 
 /* --- INDEX --- */
+
 
