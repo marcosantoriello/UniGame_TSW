@@ -42,7 +42,7 @@
 				
 					<form>
 						<input type="hidden" name="VideogiocoID" value="<%=vid.getId()%>">
-						<a href="prodotto.jsp?id=<%=vid.getId()%>"><img class="card-img-top" src="ImageServlet?immagine=<%=vid.getId()%>.jpg" alt="Card image"></a>
+						<a href="prodotto.jsp?id=<%=vid.getId()%>"><img class="card-img-top" src="ImageServlet?immagine=video_<%=vid.getId()%>.jpg" alt="Card image"></a>
 					</form>
 	
 					
@@ -50,15 +50,13 @@
 						<!-- colonne da visualizzare ella collection  -->
 						<h5 class="nome"><%= vid.getNome() %></h5>
 						<h6 class="prezzo"> &euro; <%= vid.getPrezzo()%></h6>
-						<a href="ImageServlet?id=<%= vid.getId() %>" class="btn">
+						<a href="AggiungiCarrello?id=<%= vid.getId() %>" class="btn">
 							<img src="images\icon\shopping-cart.png" alt="add-to-cart" class="icona">	
 						</a>
 						
-						
-						<!-- DA CONTROLLARE
 
-						 -->
-					</div>
+
+						</div>
 				</div>
 			</div>
 		<%	
