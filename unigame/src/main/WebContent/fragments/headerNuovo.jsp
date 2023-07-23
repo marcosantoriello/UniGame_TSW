@@ -9,7 +9,7 @@
 	
 	<%
 	//prendo dalla sessione il ruolo per far visualizzare la rispettiva navbar
-		String ruoloNav = (String) session.getAttribute("roles");
+		String ruoloNav = (String) session.getAttribute("ruolo");
 	
 	%>
 	
@@ -78,7 +78,7 @@
           						Account
         					</a>
         					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          						<a class="dropdown-item" href="#">Il mio profilo</a>
+          						<a class="dropdown-item" href="profilo.jsp">Il mio profilo</a>
           						<a class="dropdown-item" href="#">I miei ordini</a>
           						<a class="dropdown-item" href="carrello.jsp">Carrello</a>
           						<div class="dropdown-divider"></div>
@@ -112,7 +112,7 @@
           						Account
         					</a>
         					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          						<a class="dropdown-item" href="#">Il mio profilo</a>
+          						<a class="dropdown-item" href="profilo.jsp">Il mio profilo</a>
           						<div class="dropdown-divider"></div>
           							<a class="dropdown-item" href="#">Logout</a>
         					</div>
@@ -147,7 +147,7 @@
           						Account
         					</a>
         					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          						<a class="dropdown-item" href="#">Il mio profilo</a>
+          						<a class="dropdown-item" href="profilo.jsp">Il mio profilo</a>
           						<div class="dropdown-divider"></div>
           							<a class="dropdown-item" href="#">Logout</a>
         					</div>
