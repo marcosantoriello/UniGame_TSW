@@ -124,19 +124,18 @@ public class ComprendeOPDS implements ComprendeOP{
 	}
 
 	@Override
-	public ComprendeOPBean doRetrieveByKey(int id_prodotto, int id_ordine) throws SQLException {
+	public ComprendeOPBean doRetrieveByOrder(int id_ordine) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStmt = null;
 		ComprendeOPBean bean = new ComprendeOPBean();
 		
 		String selectSQL = "SELECT * FROM " + ComprendeOPDS.TABLE_NAME
-				+ "WHERE PRODOTTO =  ? AND ORDINE=?";
+				+ "WHERE ORDINE=?";
 		
 		try {
 			connection = ds.getConnection();
 			preparedStmt = connection.prepareStatement(selectSQL);
-			preparedStmt.setInt(1, id_prodotto);
-			preparedStmt.setInt(2, id_ordine);
+			preparedStmt.setInt(1, id_ordine);
 			
 			ResultSet rs = preparedStmt.executeQuery();
 			while (rs.next()) {
@@ -198,4 +197,41 @@ public class ComprendeOPDS implements ComprendeOP{
 		}
 		return ordine_prodottoF;	
 		}
+
+
+@Override
+public ComprendeOPBean doRetrieveByKey(int id_prodotto, int id_ordine) throws SQLException {
+	Connection connection = null;
+	PreparedStatement preparedStmt = null;
+	ComprendeOPBean bean = new ComprendeOPBean();
+	
+	String selectSQL = "SELECT * FROM " + ComprendeOPDS.TABLE_NAME
+			+ "WHERE PRODOTTO =  ? AND ORDINE=?";
+	
+	try {
+		connection = ds.getConnection();
+		preparedStmt = connection.prepareStatement(selectSQL);
+		preparedStmt.setInt(1, id_prodotto);
+		preparedStmt.setInt(2, id_ordine);
+		
+		ResultSet rs = preparedStmt.executeQuery();
+		while (rs.next()) {
+			bean.setProdotto(rs.getInt("prodotto"));
+			bean.setOrdine(rs.getInt("ordine"));
+		}
+	}
+	
+	finally {
+		
+		try {
+			if (preparedStmt != null)
+				preparedStmt.close();
+		}
+		finally {
+			if (connection != null)
+				connection.close();
+		}
+	}
+	return bean;
+}
 }

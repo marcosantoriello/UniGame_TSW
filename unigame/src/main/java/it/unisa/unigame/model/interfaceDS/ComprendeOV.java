@@ -16,4 +16,6 @@ public void doSave(ComprendeOVBean comprendeOV) throws SQLException;
 	public ComprendeOVBean doRetrieveByKey(int id_videogioco, int id_ordine) throws SQLException;
 	
 	public Collection<ComprendeOVBean> doRetrieveAll(String order) throws SQLException;
+	
+	public ComprendeOVBean doRetrieveByOrder(int id_ordine) throws SQLException;
 }

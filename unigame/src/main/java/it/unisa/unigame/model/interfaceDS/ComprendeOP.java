@@ -17,4 +17,6 @@ public interface ComprendeOP {
 	
 	public Collection<ComprendeOPBean> doRetrieveAll(String order) throws SQLException;
 	
+	public ComprendeOPBean doRetrieveByOrder(int id_ordine) throws SQLException;
+	
 }

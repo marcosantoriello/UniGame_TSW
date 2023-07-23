@@ -124,19 +124,18 @@ public class ComprendeOVDS implements ComprendeOV{
 	}
 
 	@Override
-	public ComprendeOVBean doRetrieveByKey(int id_videogioco, int id_ordine) throws SQLException {
+	public ComprendeOVBean doRetrieveByOrder(int id_ordine) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStmt = null;
 		ComprendeOVBean bean = new ComprendeOVBean();
 		
 		String selectSQL = "SELECT * FROM " + ComprendeOVDS.TABLE_NAME
-				+ "WHERE VIDEOGIOCO =  ? AND ORDINE=?";
+				+ "WHERE ORDINE=?";
 		
 		try {
 			connection = ds.getConnection();
 			preparedStmt = connection.prepareStatement(selectSQL);
-			preparedStmt.setInt(1, id_videogioco);
-			preparedStmt.setInt(2, id_ordine);
+			preparedStmt.setInt(1, id_ordine);
 			
 			ResultSet rs = preparedStmt.executeQuery();
 			while (rs.next()) {
@@ -197,5 +196,40 @@ public class ComprendeOVDS implements ComprendeOV{
 			}
 		}
 		return ordine_videogioco;	
+	}
+	@Override
+	public ComprendeOVBean doRetrieveByKey(int id_videogioco, int id_ordine) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStmt = null;
+		ComprendeOVBean bean = new ComprendeOVBean();
+		
+		String selectSQL = "SELECT * FROM " + ComprendeOVDS.TABLE_NAME
+				+ "WHERE VIDEOGIOCO =  ? AND ORDINE=?";
+		
+		try {
+			connection = ds.getConnection();
+			preparedStmt = connection.prepareStatement(selectSQL);
+			preparedStmt.setInt(1, id_videogioco);
+			preparedStmt.setInt(2, id_ordine);
+			
+			ResultSet rs = preparedStmt.executeQuery();
+			while (rs.next()) {
+				bean.setVideogioco(rs.getInt("videogioco"));
+				bean.setOrdine(rs.getInt("ordine"));
+			}
+		}
+		
+		finally {
+			
+			try {
+				if (preparedStmt != null)
+					preparedStmt.close();
+			}
+			finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return bean;
 	}
 }
