@@ -32,7 +32,7 @@ public class ImageServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nomeImg = request.getParameter("immagine");
 		System.out.println("Nome Immagine: " + nomeImg);
-		if(!nomeImg.contains("Prodotto")){
+		if(!nomeImg.contains("prodotto")){
 			String path = getServletContext().getRealPath("/"+"images"+"/"+"Videogiochi"+File.separator+nomeImg);
 			System.out.println("Percorso: " + path);
 			response.setContentType("image/*");

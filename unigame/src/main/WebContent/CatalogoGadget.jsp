@@ -43,14 +43,17 @@
 				
 					<form>
 						<input type="hidden" name="ProfottoFisicoID" value="<%=prod.getId()%>">
-						<a href="prodotto.jsp?id=<%=prod.getId()%>"><img class="card-img-top" src="ImageServlet?immagine=prodotto_<%=prod.getId()%>.jpg" alt="Card image"></a>
+						<%System.out.println("Codice Prodotto: " + prod.getId()); %>
+						<a href="prodottoVideogioco.jsp?id=<%=prod.getId()%>"> <img class="image-piccola card-img-top image-responsive" src="ImageServlet?immagine=prodotto_<%=prod.getId()%>.jpg" alt="Card image"> </a>
 					</form>
 	
 					<div class="card-body">
 					<!-- colonne da visualizzare ella collection  -->
 					<h5 class="nome"><%= prod.getNome()%></h5>
 					<h6 class="prezzo"> &euro; <%= prod.getPrezzo()%></h6>
-				
+					<a href="AggiungiCarrello?id=<%= prod.getId() %>" class="btn">
+						<img src="images\icon\shopping-cart.png" alt="add-to-cart" class="icona">	
+					</a>
 						
 				
 					</div>
