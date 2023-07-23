@@ -45,7 +45,7 @@
 				
 				
 				<div class="text-center">
-			   		 <p>Non sei registrato? <a href="/gamePlatformSite/signup-form.jsp">Registrati</a></p>
+			   		 <p>Non sei registrato? <a href="/unigame/signupPage.jsp">Registrati</a></p>
 			    </div>
 			     
 			   

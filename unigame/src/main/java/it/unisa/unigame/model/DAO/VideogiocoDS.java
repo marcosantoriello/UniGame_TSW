@@ -140,7 +140,7 @@ static final String  TABLE_NAME= "videogioco";
 		VideogiocoBean bean = new VideogiocoBean();
 		
 		String selectSQL = "SELECT * FROM " + VideogiocoDS.TABLE_NAME
-				+ "WHERE ID =  ?";
+				+ " WHERE ID =  ?";
 		
 		try {
 			connection = ds.getConnection();
