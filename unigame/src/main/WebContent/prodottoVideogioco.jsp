@@ -15,9 +15,12 @@
 	Videogioco vidDS = new VideogiocoDS(ds);
 	VideogiocoBean vidBean = vidDS.doRetrieveByKey(id);
 	
+	RecensioneDS recDS = new RecensioneDS(ds);
+	Collection<RecensioneBean> colRec = recDS.doRetrieveAll(id, null);
+	
 	//aggiungi recensioni
 	
-	Cliente clDs = new ClienteDS(ds);
+	Cliente clDS = new ClienteDS(ds);
 	
 %>
 
@@ -61,7 +64,7 @@
                %>
                <br/>
                <a href="AggiungiCarrello?id=<%=vidBean.getId()%>" class="btn border-dark"> 
-               		<img src="img\icon\shopping-cart.svg" alt="add-to-cart" class="icona"> Aggiungi al carrello
+               		 Aggiungi al carrello
 			   </a>
 			   <%
 			   
@@ -71,15 +74,122 @@
 			   
 			</div>
 		</div><!-- end row -->
-		<br/>
+		<br/> 
+		<!-- RECENSIONI -->
 		<div class="row">
 			<div class="col-md-12 d-flex justify-content-center">
 			
-				<!-- AGGIUNGI SECTION RECENSIONI -->
+				<section>
+					<div class="row d-flex justify-content-center py-3">
+						<div class="col-md-10 col-xl-8 text-center">
+							<h3 class="mb-4">Recensioni</h3>
+						</div>
+					</div>
+					
+					<div class="row text-center">
+						<%
+							if(!colRec.isEmpty()){
+								for(RecensioneBean rec: colRec){
+								ClienteBean clBean = clDS.doRetrieveByKey(rec.getCliente());
+						%>
+						<div class="col-md-12  mb-md-5">
+							<h5 class="mb-3"><%=clBean.getNome() %> <%=clBean.getCognome() %></h5>
+							<p class="px-xl-3">
+								<%=rec.getDescrizione() %><br/>
+								Data e ora: <%=DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss").format(rec.getData_e_ora()) %>
+							</p>
+							<%
+								String strGrado = rec.getIndice_di_gradimento().toString();
+								int grado = 0;
+							
+								if(strGrado.equals("cinque")){
+									grado = 5; 
+								} else if (strGrado.equals("quattro")){
+									grado=4;
+								} else if (strGrado.equals("tre")){
+									grado=3;
+								} else if (strGrado.equals("due")){
+									grado=2;
+								} else if (strGrado.equals("uno")){
+									grado=1;
+								}
+									
+							%>
+							<div>
+							<ul class="list-inline">
+							
+								<% 
+									for(int i=1; i<=grado; i++){
+								%>
+									<img src="image\icon\star.svg" alt="star-piena" class="icona">
+									
+								<% } %>
+								
+								<% 
+									for(int i=grado; i<5; i++){
+								%>
+									<img src="image\icon\star-vuota.svg" alt="star-vuota" class="icona")>
+									
+								<% } %>
+							</ul>
+						</div>
+							
+						</div>
+						
+						<% 
+						}
+						}else{
+						
+						%>
+						<h5>Non ci sono recensioni.</h5>				
+						
+						<% 
+					}
+						
+				%>
+					</div><!-- chiusura div per il for -->
+				
+				</section>
 				
 			</div>
 		
-		</div>
+		</div><!-- end row -->
+		
+		
+		
+		<br/><br/>
+			 <% 
+			 	if(ruolo==null){
+			 		
+			 	}else if(ruolo.equals("cliente")){
+			 		
+             %>
+			<form action="RecensioneServlet?id=<%=vidBean.getId() %>" method="post">
+				<div class="row">
+					<div class="form-group">
+						<label for="textArea">Descrizione</label>
+						<textarea class="form-control" id="textArea" name="textArea" rows="7"></textarea>
+					</div>
+				</div>
+				<br/>
+				<div class="row">	
+					<div class="col-md-6 mb-3">
+						<label for="grado">Grado di Apprezzamento</label> <br /> <select name="grado"
+							id="grado" class="form-control">
+							<option value="uno" id="uno">uno</option>
+							<option value="due" id="due">due</option>
+							<option value="tre" id="tre">tre</option>
+							<option value="quattro" id="quattro">quattro</option>
+							<option value="cinque" id="cinque">cinque</option>
+						</select>
+					</div>
+				</div>
+				<input type="submit" value="Aggiungi recensione" class="btn btn-block btn-warning"/>
+			</form>
+			<%
+			 	}
+			%>
+		
 	</div><!-- end container -->
 	<%@ include file="/fragments/footer.jsp" %>
 </body>

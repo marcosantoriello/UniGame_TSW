@@ -64,7 +64,7 @@
 				  <img class="card-img-top" src="ImageServlet?immagine=video_660563.jpg" alt="Card image cap">
 				  <div class="card-body">
 				    <h5 class="card-title">FIFA 22</h5>
-				    <a href="#" class="btn btn-primary">Visualizza</a>
+				    <a href="prodottoVideogioco.jsp?id=660563" class="btn btn-primary">Visualizza</a>
 				  </div>
 				</div>
 				<!-- VIDEOGIOCO -->
@@ -72,7 +72,7 @@
 				  <img class="card-img-top" src="ImageServlet?immagine=video_446002.jpg" alt="Card image cap">
 				  <div class="card-body">
 				    <h5 class="card-title">AC: Valhalla</h5>
-				    <a href="#" class="btn btn-primary">Visualizza</a>
+				    <a href="prodottoVideogioco.jsp?id=446002" class="btn btn-primary">Visualizza</a>
 				  </div>
 				</div>
 				<!-- VIDEOGIOCO -->
@@ -80,7 +80,7 @@
 				  <img class="card-img-top" src="ImageServlet?immagine=video_894354.jpg" alt="Card image cap">
 				  <div class="card-body">
 				    <h5 class="card-title">Skyrim</h5>
-				    <a href="#" class="btn btn-primary">Visualizza</a>
+				    <a href="prodottoVideogioco.jsp?id=894354" class="btn btn-primary">Visualizza</a>
 				  </div>
 				</div>
 				
@@ -93,7 +93,7 @@
 			
 			<div id="roccia" class="col-md-4 my-3 mx-auto">
 				<div id="rocket" class="card text-center w-100">
-					<a href="#"> <img class="image-piccola card-img-top image-responsive" src="ImageServlet?immagine=video_<%=vidBean.getId()%>.jpg" alt="Card image"> </a>				
+					<a href="prodottoVideogioco.jsp?id=<%=vidBean.getId()%>"> <img class="image-piccola card-img-top image-responsive" src="ImageServlet?immagine=video_<%=vidBean.getId()%>.jpg" alt="Card image"> </a>				
 				</div>
 			</div>	
 			</div>

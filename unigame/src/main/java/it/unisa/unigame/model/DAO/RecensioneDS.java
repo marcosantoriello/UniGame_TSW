@@ -30,7 +30,7 @@ public class RecensioneDS implements Recensione{
 		Connection connection=null;
 		PreparedStatement preparedStmt=null;
 		
-		String insertSQL = "INSERT INTO "+ RecensioneDS.TABLE_NAME + "(ID, CLIENTE, PRODOTTO, VIDEOGIOCO, DATA_E_ORA, DESCRIZIONE, INDICE_DI_GRADIMENTO)"+ "VALUES (?, ?, ?, ?, ?, ?, ?)";
+		String insertSQL = "INSERT INTO "+ RecensioneDS.TABLE_NAME + "(ID, CLIENTE, VIDEOGIOCO, DATA_E_ORA, DESCRIZIONE, INDICE_DI_GRADIMENTO) VALUES (?, ?, ?, ?, ?, ?)";
 		
 		try {
 			connection = ds.getConnection();
@@ -38,11 +38,10 @@ public class RecensioneDS implements Recensione{
 			
 			preparedStmt.setInt(1, bean.getVideogioco());
 			preparedStmt.setString(2, bean.getCliente());
-			preparedStmt.setInt(3, bean.getProdotto());
-			preparedStmt.setInt(4, bean.getVideogioco());
-			preparedStmt.setTimestamp(5, Timestamp.valueOf(bean.getData_e_ora()));
-			preparedStmt.setString(6, bean.getDescrizione());
-			preparedStmt.setString(7, bean.getIndice_di_gradimento().name());
+			preparedStmt.setInt(3, bean.getVideogioco());
+			preparedStmt.setTimestamp(4, Timestamp.valueOf(bean.getData_e_ora()));
+			preparedStmt.setString(5, bean.getDescrizione());
+			preparedStmt.setString(6, bean.getIndice_di_gradimento().name());
 			
 			preparedStmt.executeUpdate();
 			
@@ -67,7 +66,7 @@ public class RecensioneDS implements Recensione{
 		PreparedStatement preparedStmt = null;
 		
 		String updateSQl = "UPDATE " + RecensioneDS.TABLE_NAME
-				+ "SET ID= ?, CLIENTE= ?, PRODOTTO= ?, VIDEOGIOCO= ?, DATA_E_ORA= ?, DESCRIZIONE= ?, INDICE_DI_GRADIMENTO = ?";
+				+ " SET ID= ?, CLIENTE= ?, VIDEOGIOCO= ?, DATA_E_ORA= ?, DESCRIZIONE= ?, INDICE_DI_GRADIMENTO = ?";
 		
 		try {
 			connection = ds.getConnection();
@@ -75,7 +74,6 @@ public class RecensioneDS implements Recensione{
 			
 			preparedStmt.setInt(1, bean.getId());
 			preparedStmt.setString(2, bean.getCliente());
-			preparedStmt.setInt(3, bean.getProdotto());
 			preparedStmt.setInt(4, bean.getVideogioco());
 			preparedStmt.setTimestamp(5, Timestamp.valueOf(bean.getData_e_ora()));
 			preparedStmt.setString(6, bean.getDescrizione());
@@ -109,7 +107,7 @@ public class RecensioneDS implements Recensione{
 		int result = 0;
 		
 		String deleteSQL = "DELETE FROM " + RecensioneDS.TABLE_NAME
-				+ "WHERE ID = ?";
+				+ " WHERE ID = ?";
 		
 		try {
 			connection = ds.getConnection();
@@ -140,7 +138,7 @@ public class RecensioneDS implements Recensione{
 		RecensioneBean bean = new RecensioneBean();
 		
 		String selectSQL = "SELECT * FROM " + RecensioneDS.TABLE_NAME
-				+ "WHERE VIDEOGIOCO =  ? AND ORDINE=?";
+				+ " WHERE VIDEOGIOCO =  ? AND ORDINE=?";
 		
 		try {
 			connection = ds.getConnection();
@@ -151,7 +149,6 @@ public class RecensioneDS implements Recensione{
 			while (rs.next()) {
 				bean.setId(rs.getInt("id"));
 				bean.setCliente(rs.getString("cliente"));
-				bean.setProdotto(rs.getInt("prodotto"));
 				bean.setVideogioco(rs.getInt("videogioco"));
 				bean.setData_e_ora(rs.getTimestamp("data_e_ora").toLocalDateTime());
 				bean.setDescrizione(rs.getString("descrizione"));
@@ -173,13 +170,13 @@ public class RecensioneDS implements Recensione{
 	}
 
 	@Override
-	public Collection<RecensioneBean> doRetrieveAll(String order) throws SQLException {
+	public Collection<RecensioneBean> doRetrieveAll(int id, String order) throws SQLException {
 
 		Collection<RecensioneBean> recensioni = new LinkedList<>();
 		Connection connection = null;
 		PreparedStatement preparedStmt = null;
 		
-		String selectSQL = "SELECT * FROM " + RecensioneDS.TABLE_NAME;
+		String selectSQL = "SELECT * FROM " + RecensioneDS.TABLE_NAME + " WHERE VIDEOGIOCO= " + id;
 		
 		if (order != null && !order.equals("")) {
 			selectSQL += " ORDER BY " + order;
@@ -195,7 +192,6 @@ public class RecensioneDS implements Recensione{
 				
 				bean.setId(rs.getInt("id"));
 				bean.setCliente(rs.getString("cliente"));
-				bean.setProdotto(rs.getInt("prodotto"));
 				bean.setVideogioco(rs.getInt("videogioco"));
 				bean.setData_e_ora(rs.getTimestamp("data_e_ora").toLocalDateTime());
 				bean.setDescrizione(rs.getString("descrizione"));

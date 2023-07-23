@@ -29,7 +29,7 @@ public class ProdottoFisicoDS implements ProdottoFisico{
 		Connection connection=null;
 		PreparedStatement preparedStmt=null;
 		
-		String insertSQL = "INSERT INTO "+ ProdottoFisicoDS.TABLE_NAME + "(ID,NOME, PREZZO, QUANTITà, DISPONIBILE)"+ "VALUES (?, ?, ?, ?, ?)";
+		String insertSQL = "INSERT INTO "+ ProdottoFisicoDS.TABLE_NAME + "(ID,NOME, PREZZO, QUANTITA, DISPONIBILE)"+ "VALUES (?, ?, ?, ?, ?)";
 		
 		try {
 			connection = ds.getConnection();
@@ -65,7 +65,7 @@ public class ProdottoFisicoDS implements ProdottoFisico{
 		PreparedStatement preparedStmt = null;
 		
 		String updateSQl = "UPDATE " + ProdottoFisicoDS.TABLE_NAME
-				+ "SET ID = ?, NOME = ?, PREZZO = ?, QUANTITà = ?, DISPONIBILE= ?, WHERE ID = ?";
+				+ "SET ID = ?, NOME = ?, PREZZO = ?, QUANTITA = ?, DISPONIBILE= ?, WHERE ID = ?";
 		
 		try {
 			connection = ds.getConnection();
@@ -147,7 +147,7 @@ public class ProdottoFisicoDS implements ProdottoFisico{
 				bean.setId(rs.getInt("id"));
 				bean.setNome(rs.getString("nome"));
 				bean.setPrezzo(rs.getInt("prezzo"));
-				bean.setQuantità(rs.getInt("quantità"));
+				bean.setQuantità(rs.getInt("quantita"));
 				bean.setDisponibilità(rs.getBoolean("disponibile"));
 			}
 		}
@@ -191,7 +191,7 @@ public class ProdottoFisicoDS implements ProdottoFisico{
 				bean.setId(rs.getInt("id"));
 				bean.setNome(rs.getString("nome"));
 				bean.setPrezzo(rs.getInt("prezzo"));
-				bean.setQuantità(rs.getInt("quantità"));
+				bean.setQuantità(rs.getInt("quantita"));
 				bean.setDisponibilità(rs.getBoolean("disponibile"));
 				
 				prodotti_fisici.add(bean);

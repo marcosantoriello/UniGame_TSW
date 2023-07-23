@@ -29,7 +29,7 @@ static final String  TABLE_NAME= "videogioco";
 		Connection connection=null;
 		PreparedStatement preparedStmt=null;
 		
-		String insertSQL = "INSERT INTO "+ VideogiocoDS.TABLE_NAME + "(ID, NOME, PREZZO, QUANTITA, PEGI, ANNO_PRODUZIONE, DISPONIBILE, PRODUTTORE)"+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		String insertSQL = "INSERT INTO "+ VideogiocoDS.TABLE_NAME + "(ID, NOME, PREZZO, QUANTITA, PEGI, ANNO_PRODUZIONE, DISPONIBILE, PRODUTTORE) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		try {
 			connection = ds.getConnection();
@@ -68,7 +68,7 @@ static final String  TABLE_NAME= "videogioco";
 		PreparedStatement preparedStmt = null;
 		
 		String updateSQl = "UPDATE " + VideogiocoDS.TABLE_NAME
-				+ "SET ID = ?, NOME = ?, PREZZO = ?, QUANTITA = ?,PEGI= ?,ANNO_PRODUZIONE= ?, DISPONIBILE= ?, PRODUTTORE= ?, WHERE ID = ?";
+				+ " SET ID = ?, NOME = ?, PREZZO = ?, QUANTITA = ?,PEGI= ?,ANNO_PRODUZIONE= ?, DISPONIBILE= ?, PRODUTTORE= ?, WHERE ID = ?";
 		
 		try {
 			connection = ds.getConnection();

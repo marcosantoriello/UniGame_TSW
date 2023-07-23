@@ -10,7 +10,6 @@ public class RecensioneBean implements Serializable{
 	
 	private int id;
 	private String cliente;
-	private int prodotto;
 	private int videogioco;
 	private LocalDateTime data_e_ora;
 	private String descrizione;
@@ -21,17 +20,15 @@ public class RecensioneBean implements Serializable{
 		this.id=0;
 		this.cliente=null;
 		this.videogioco=0;
-		this.prodotto=0;
 		this.data_e_ora=null;
 		this.descrizione=null;
 		this.indice_di_gradimento=null;
 	}
 	
-	public RecensioneBean(int id, String client, int prod, int vid, LocalDateTime data, String desc, Indice_gradimento ind) {
+	public RecensioneBean(int id, String client, int vid, LocalDateTime data, String desc, Indice_gradimento ind) {
 		this.id=id;
 		this.cliente=client;
 		this.videogioco=vid;
-		this.prodotto=prod;
 		this.data_e_ora=data;
 		this.descrizione=desc;
 		this.indice_di_gradimento=ind;
@@ -51,14 +48,6 @@ public class RecensioneBean implements Serializable{
 
 	public void setCliente(String cliente) {
 		this.cliente = cliente;
-	}
-
-	public int getProdotto() {
-		return this.prodotto;
-	}
-
-	public void setProdotto(int prodotto) {
-		this.prodotto = prodotto;
 	}
 
 	public int getVideogioco() {
@@ -104,13 +93,12 @@ public class RecensioneBean implements Serializable{
 		RecensioneBean other = (RecensioneBean) obj;
 		return Objects.equals(cliente, other.cliente) && Objects.equals(data_e_ora, other.data_e_ora)
 				&& Objects.equals(descrizione, other.descrizione) && id == other.id
-				&& indice_di_gradimento == other.indice_di_gradimento && prodotto == other.prodotto
-				&& videogioco == other.videogioco;
+				&& indice_di_gradimento == other.indice_di_gradimento && videogioco == other.videogioco;
 	}
 
 	@Override
 	public String toString() {
-		return "RecensioneBean [id=" + id + ", cliente=" + cliente + ", prodotto=" + prodotto + ", videogioco="
+		return "RecensioneBean [id=" + id + ", cliente=" + cliente + ", videogioco="
 				+ videogioco + ", data_e_ora=" + data_e_ora + ", descrizione=" + descrizione + ", indice_di_gradimento="
 				+ indice_di_gradimento + "]";
 	}

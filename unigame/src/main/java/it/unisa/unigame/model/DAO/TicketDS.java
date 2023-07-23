@@ -29,7 +29,7 @@ public class TicketDS implements Ticket{
 		Connection connection=null;
 		PreparedStatement preparedStmt=null;
 		
-		String insertSQL = "INSERT INTO "+ TicketDS.TABLE_NAME + "(NUM_TICKET, DATA_E_ORA, CLIENTE, GEST_ASS, CATEGORIA, MESSAGGIO, RISOLTO)"+ "VALUES (?, ?, ?, ?, ?, ?, ?)";
+		String insertSQL = "INSERT INTO "+ TicketDS.TABLE_NAME + " (NUM_TICKET, DATA_E_ORA, CLIENTE, GEST_ASS, CATEGORIA, MESSAGGIO, RISOLTO) VALUES (?, ?, ?, ?, ?, ?, ?)";
 		
 		try {
 			connection = ds.getConnection();
@@ -67,7 +67,7 @@ public class TicketDS implements Ticket{
 		PreparedStatement preparedStmt = null;
 		
 		String updateSQl = "UPDATE " + TicketDS.TABLE_NAME
-				+ "SET NUM_TICKET= ?, DATA_E_ORA= ?, CLIENTE= ?, GEST_ASS= ?, CATEGORIA= ?, MESSAGGIO= ?, RISOLTO = ?";
+				+ " SET NUM_TICKET= ?, DATA_E_ORA= ?, CLIENTE= ?, GEST_ASS= ?, CATEGORIA= ?, MESSAGGIO= ?, RISOLTO = ?";
 		
 		try {
 			connection = ds.getConnection();
@@ -138,7 +138,7 @@ public class TicketDS implements Ticket{
 		TicketBean bean = new TicketBean();
 		
 		String selectSQL = "SELECT * FROM " + TicketDS.TABLE_NAME
-				+ "WHERE NUM_TICKET =  ?";
+				+ " WHERE NUM_TICKET =  ?";
 		
 		try {
 			connection = ds.getConnection();

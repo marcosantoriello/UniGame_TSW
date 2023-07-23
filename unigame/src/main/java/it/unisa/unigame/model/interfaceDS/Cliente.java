@@ -13,7 +13,7 @@ public interface Cliente {
 	
 	public boolean doDelete(String username) throws SQLException;
 	
-	public ClienteBean doRetrieveByKey(String username) throws SQLException;
+	public ClienteBean doRetrieveByKey(String codice_fiscale) throws SQLException;
 	
 	public ClienteBean doRetrieveByKeyEmail(String email) throws SQLException;
 	

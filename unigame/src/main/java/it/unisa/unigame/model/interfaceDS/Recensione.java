@@ -15,5 +15,5 @@ public interface Recensione {
 			
 		public RecensioneBean doRetrieveByKey(int id) throws SQLException;
 			
-		public Collection<RecensioneBean> doRetrieveAll(String order) throws SQLException;
+		public Collection<RecensioneBean> doRetrieveAll(int id, String order) throws SQLException;
 }

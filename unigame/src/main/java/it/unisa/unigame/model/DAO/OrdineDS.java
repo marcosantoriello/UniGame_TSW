@@ -29,9 +29,9 @@ public class OrdineDS implements Ordine{
 		Connection connection = null;
 		PreparedStatement preparedStmt = null;
 		
-		String insertSQL = "INSERT INTO" + OrdineDS.TABLE_NAME
-				+ " (ID, CLIENTE, DATA_E_ORA, IMPORTO_TOTALE, NUM_CARTA, FATTURA) "
-				+ "VALUES (?, ?, ?, ?, ?)";
+		String insertSQL = "INSERT INTO " + OrdineDS.TABLE_NAME
+				+ " (ID, CLIENTE, DATA_E_ORA, IMPORTO_TOTALE, NUM_CARTA) "
+				+ " VALUES (?, ?, ?, ?, ?)";
 		
 		try {
 			connection = ds.getConnection();
@@ -42,7 +42,7 @@ public class OrdineDS implements Ordine{
 			preparedStmt.setTimestamp(3, Timestamp.valueOf(bean.getData_e_ora()));
 			preparedStmt.setFloat(4, bean.getImporto_totale());
 			preparedStmt.setLong(5, bean.getNum_carta());
-			preparedStmt.setBoolean(10, bean.isFattura());	
+			
 			
 			preparedStmt.executeUpdate();
 			
@@ -69,7 +69,7 @@ public class OrdineDS implements Ordine{
 		PreparedStatement preparedStmt = null;
 		
 		String updateSQl = "UPDATE " + OrdineDS.TABLE_NAME
-				+ "SET ID = ?, CLIENTE = ?, DATA_E_ORA = ?, IMPORTO_TOTALE = ?, CARTA= ?,FATTURA= ?, WHERE ID = ?";
+				+ " SET ID = ?, CLIENTE = ?, DATA_E_ORA = ?, IMPORTO_TOTALE = ?, CARTA= ?, WHERE ID = ?";
 		
 		try {
 			connection = ds.getConnection();
@@ -79,8 +79,7 @@ public class OrdineDS implements Ordine{
 			preparedStmt.setString(2, bean.getCodice_fiscale());
 			preparedStmt.setTimestamp(3, Timestamp.valueOf(bean.getData_e_ora()));
 			preparedStmt.setFloat(4, bean.getImporto_totale());
-			preparedStmt.setLong(5, bean.getNum_carta());
-			preparedStmt.setBoolean(10, bean.isFattura());		
+			preparedStmt.setLong(5, bean.getNum_carta());	
 			
 			preparedStmt.executeUpdate();
 			
@@ -109,7 +108,7 @@ public class OrdineDS implements Ordine{
 		int result = 0;
 		
 		String deleteSQL = "DELETE FROM " + OrdineDS.TABLE_NAME
-				+ "WHERE ID = ?";
+				+ " WHERE ID = ?";
 		
 		try {
 			connection = ds.getConnection();
@@ -140,7 +139,7 @@ public class OrdineDS implements Ordine{
 		OrdineBean bean = new OrdineBean();
 		
 		String selectSQL = "SELECT * FROM " + OrdineDS.TABLE_NAME
-				+ "WHERE ID =  ?";
+				+ " WHERE ID =  ?";
 		
 		try {
 			connection = ds.getConnection();
@@ -154,7 +153,6 @@ public class OrdineDS implements Ordine{
 				bean.setData_e_ora(rs.getTimestamp("data_e_ora").toLocalDateTime());
 				bean.setImporto_totale(rs.getFloat("importo_totale"));
 				bean.setNum_carta(rs.getLong("num_carta"));
-				bean.setFattura(rs.getBoolean("fattura"));	
 			}
 		}
 		
@@ -199,7 +197,6 @@ public class OrdineDS implements Ordine{
 				bean.setData_e_ora(rs.getTimestamp("data_e_ora").toLocalDateTime());
 				bean.setImporto_totale(rs.getFloat("importo_totale"));
 				bean.setNum_carta(rs.getLong("num_carta"));
-				bean.setFattura(rs.getBoolean("fattura"));
 				
 				ordini.add(bean);
 			}
@@ -242,7 +239,6 @@ public class OrdineDS implements Ordine{
 					bean.setData_e_ora(rs.getTimestamp("data_e_ora").toLocalDateTime());
 					bean.setImporto_totale(rs.getFloat("importo_totale"));
 					bean.setNum_carta(rs.getLong("num_carta"));
-					bean.setFattura(rs.getBoolean("fattura"));
 					
 					ordini.add(bean);
 				}

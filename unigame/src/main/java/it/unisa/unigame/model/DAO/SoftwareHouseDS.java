@@ -29,7 +29,7 @@ public class SoftwareHouseDS implements SoftwareHouse{
 		Connection connection = null;
 		PreparedStatement preparedStmt = null;
 		String insertSQL = "INSERT INTO " + TABLE_NAME
-				+ "(NOME, LOCAZIONE, ANNO_FONDAZIONE) VALUES(?, ?, ?)";
+				+ " (NOME, LOCAZIONE, ANNO_FONDAZIONE) VALUES(?, ?, ?)";
 		
 		try {
 			connection = ds.getConnection();
@@ -60,7 +60,7 @@ public class SoftwareHouseDS implements SoftwareHouse{
 		PreparedStatement preparedStmt = null;
 		
 		String updateSQl = "UPDATE " + SoftwareHouseDS.TABLE_NAME
-				+ "SET NOME= ?, LOCAZIONE= ?, ANNO_FONDAZIONE= ?";
+				+ " SET NOME= ?, LOCAZIONE= ?, ANNO_FONDAZIONE= ?";
 		
 		try {
 			connection = ds.getConnection();
@@ -97,7 +97,7 @@ public class SoftwareHouseDS implements SoftwareHouse{
 		int result = 0;
 		
 		String deleteSQL = "DELETE FROM " + SoftwareHouseDS.TABLE_NAME
-				+ "WHERE NOME = ?";
+				+ " WHERE NOME = ?";
 		
 		try {
 			connection = ds.getConnection();
@@ -127,7 +127,7 @@ public class SoftwareHouseDS implements SoftwareHouse{
 		SoftwareHouseBean bean = new SoftwareHouseBean();
 		
 		String selectSQL = "SELECT * FROM " + SoftwareHouseDS.TABLE_NAME
-				+ "WHERE NOME =  ? ";
+				+ " WHERE NOME =  ? ";
 		
 		try {
 			connection = ds.getConnection();

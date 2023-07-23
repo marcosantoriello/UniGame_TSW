@@ -28,7 +28,7 @@ public class ClienteDS implements Cliente{
 		Connection connection = null;
 		PreparedStatement preparedStmt = null;
 		
-		String insertSQL = "INSERT INTO " + 	ClienteDS.TABLE_NAME
+		String insertSQL = "INSERT INTO " + ClienteDS.TABLE_NAME
 				+ " (CODICE_FISCALE, NOME, COGNOME, USERNAME, EMAIL, PASS_WORD, RUOLO, IND_FATTURAZIONE, DATA_DI_NASCITA, CONTA_ORDINE_REL, SOSPESO) "
 				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
@@ -72,7 +72,7 @@ public class ClienteDS implements Cliente{
 		PreparedStatement preparedStmt = null;
 		
 		String updateSQl = "UPDATE " + ClienteDS.TABLE_NAME
-				+ "SET NOME = ?, COGNOME = ?, USERNAME = ?, EMAIL = ?, PASS_WORD = ?, INDIRIZZO_FATTURAZIONE = ?," 
+				+ "SET NOME = ?, COGNOME = ?, USERNAME = ?, EMAIL = ?, PASS_WORD = ?, IND_FATTURAZIONE = ?," 
 				+ " DATA_DI_NASCITA = ?, SOSPESO = ?, FATTURA= ?, WHERE CODICE_FISCALE = ?";
 		
 		try {
@@ -140,19 +140,19 @@ public class ClienteDS implements Cliente{
 	}
 
 	@Override
-	public ClienteBean doRetrieveByKey(String username) throws SQLException {
+	public ClienteBean doRetrieveByKey(String codice_fiscale) throws SQLException {
 		
 		Connection connection = null;
 		PreparedStatement preparedStmt = null;
 		ClienteBean bean = new ClienteBean();
 		
 		String selectSQL = "SELECT * FROM " + ClienteDS.TABLE_NAME
-				+ "WHERE USERNAME =  ?";
+				+ " WHERE CODICE_FISCALE =  ?";
 		
 		try {
 			connection = ds.getConnection();
 			preparedStmt = connection.prepareStatement(selectSQL);
-			preparedStmt.setString(1, username);
+			preparedStmt.setString(1, codice_fiscale);
 			
 			ResultSet rs = preparedStmt.executeQuery();
 			while (rs.next()) {
@@ -162,7 +162,7 @@ public class ClienteDS implements Cliente{
 				bean.setUsername(rs.getString("username"));
 				bean.setEmail(rs.getString("email"));
 				bean.setPassword(rs.getString("pass_word"));
-				bean.setInd_fatturazione(rs.getString("indirizzo_fatturazione"));
+				bean.setInd_fatturazione(rs.getString("ind_fatturazione"));
 				bean.setData_di_nascita(rs.getDate("data_di_nascita").toLocalDate());
 				bean.setSospeso(rs.getBoolean("sospeso"));
 			}
@@ -203,7 +203,7 @@ public class ClienteDS implements Cliente{
 				bean.setUsername(rs.getString("username"));
 				bean.setEmail(rs.getString("email"));
 				bean.setPassword(rs.getString("pass_word"));
-				bean.setInd_fatturazione(rs.getString("indirizzo_fatturazione"));
+				bean.setInd_fatturazione(rs.getString("ind_fatturazione"));
 				bean.setData_di_nascita(rs.getDate("data_di_nascita").toLocalDate());
 				bean.setSospeso(rs.getBoolean("sospeso"));
 			}
@@ -249,7 +249,7 @@ public class ClienteDS implements Cliente{
 				bean.setUsername(rs.getString("username"));
 				bean.setEmail(rs.getString("email"));
 				bean.setPassword(rs.getString("pass_word"));
-				bean.setInd_fatturazione(rs.getString("indirizzo_fatturazione"));
+				bean.setInd_fatturazione(rs.getString("ind_fatturazione"));
 				bean.setData_di_nascita(rs.getDate("data_di_nascita").toLocalDate());
 				bean.setSospeso(rs.getBoolean("sospeso"));
 				
