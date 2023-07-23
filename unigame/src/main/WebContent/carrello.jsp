@@ -36,7 +36,7 @@
 			if(importo == "0"){
 				alert("Per procedere all'acquisto devi contenere almeno un oggetto nel carrello.");
 			} else {
-				window.location.href="#";
+				window.location.href="CheckoutServlet";
 			}
 		}
 	

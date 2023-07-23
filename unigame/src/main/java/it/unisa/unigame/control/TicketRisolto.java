@@ -45,7 +45,7 @@ public class TicketRisolto extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		response.sendRedirect(request.getContextPath() + "/gestTick.jsp");
+		response.sendRedirect(request.getContextPath() + "/ticketGestore.jsp");
 	}
 
 	/**

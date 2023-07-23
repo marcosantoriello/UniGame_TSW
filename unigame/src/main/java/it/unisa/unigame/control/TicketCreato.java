@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+import com.mysql.cj.Session;
+
 import it.unisa.unigame.model.DAO.ClienteDS;
 import it.unisa.unigame.model.DAO.TicketDS;
 import it.unisa.unigame.model.bean.ClienteBean;
@@ -52,9 +54,8 @@ public class TicketCreato extends HttpServlet {
 		TicketBean ticket=new TicketBean();
 		Ticket ticketDS = new TicketDS(ds);
 		Cliente user= new ClienteDS(ds);
-		ClienteBean userBean= new ClienteBean();
+		ClienteBean userBean= (ClienteBean)request.getSession().getAttribute("utente") ;
 		try {
-			userBean=user.doRetrieveByKeyEmail(email);
 			String cf=userBean.getCodice_fiscale();
 			ticket.setCliente(cf);
 			ticket.setMessaggio(requestBody);
@@ -63,10 +64,13 @@ public class TicketCreato extends HttpServlet {
 			ticket.setNum_ticket(0);
 			ticket.setRisolto(false);
 			ticketDS.doSave(ticket);
+			System.out.println("mess="+ticket.getMessaggio());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
 		}
+		response.sendRedirect(request.getContextPath()+"/ticketEffettuato.jsp");
 	}
 
 }

@@ -2,7 +2,7 @@
 it.unisa.unigame.model.DAO.TicketDS, java.util.*" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String role = (String) session.getAttribute("ruolo");
+	String role ="gestAssist";   // (String) session.getAttribute("ruolo");
 	
 	if(role == null){
 		response.sendRedirect(request.getContextPath() + "/loginPage.jsp");
@@ -75,6 +75,17 @@ it.unisa.unigame.model.DAO.TicketDS, java.util.*" contentType="text/html; charse
 						
 							<td><%= ticBean.getCategory() %></td>
 							<td><%= ticBean.getMessaggio() %></td>
+							<%if(ticBean.isRisolto()==false) { 
+								
+							
+							%>
+							<td>non risolto</td>
+							<%}else if(ticBean.isRisolto()==true) { 
+								
+							
+							%>
+							<td> risolto</td>
+							<%} %>
 							<td>
 								<button type="button" class="btn border-dark" onclick='remOggetto("<%= ticBean.getNum_ticket() %>")'><img src="img\icon\check.svg" alt="prob-risolto" class="icona"></button>
 							</td>
