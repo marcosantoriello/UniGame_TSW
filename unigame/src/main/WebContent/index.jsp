@@ -103,20 +103,41 @@
 				<h3 class="my-3">Gadget e Accessori</h3>
 				<!-- PRODOTTO -->
 				<div class="card" style="width: 18rem;">
-				  <img class="card-img-top" src="images/Videogiochi/video_gta5.png" alt="Card image cap">
+				  <img class="card-img-top" src="ImageServlet?immagine=prodotto_901122.jpg" alt="Card image cap">
 				  <div class="card-body">
-				    <h5 class="card-title">Card title</h5>
-				    <a href="#" class="btn btn-primary">Visualizza</a>
+				    <h5 class="card-title">Astuccio Fortnite</h5>
+				    <a href="prodottoGadget.jsp?id=901122" class="btn btn-primary">Visualizza</a>
 				  </div>
 				</div>
 				
-				<div id="roccia" class="col-md-4 my-3 mx-auto">
-					<div id="rocket" class="card text-center w-100">
-						<a href="#"> <img class="card-img-top" src="images/Videogiochi/video_gta5.png" alt="Card image"> </a>
-					</div>
+				
+				<!-- PRODOTTO -->
+				<div class="card" style="width: 18rem;">
+				  <img class="card-img-top" src="ImageServlet?immagine=prodotto_234978.jpg" alt="Card image cap">
+				  <div class="card-body">
+				    <h5 class="card-title">Peluche Pokemon Piakchu</h5>
+				    <a href="prodottoGadget.jsp?id=234978" class="btn btn-primary">Visualizza</a>
+				  </div>
 				</div>
 				
+				<!-- PRODOTTO -->
+				<div class="card" style="width: 18rem;">
+				  <img class="card-img-top" src="ImageServlet?immagine=prodotto_177123.jpg" alt="Card image cap">
+				  <div class="card-body">
+				    <h5 class="card-title">Peluche Pokemon Charmander</h5>
+				    <a href="prodottoGadget.jsp?id=177123" class="btn btn-primary">Visualizza</a>
+				  </div>
+				</div>
 				
+				<!-- PRODOTTO -->
+				<div class="card" style="width: 18rem;">
+				  <img class="card-img-top" src="ImageServlet?immagine=prodotto_238675.jpg" alt="Card image cap">
+				  <div class="card-body">
+				    <h5 class="card-title">Funko Pop Taz</h5>
+				    <a href="prodottoGadget.jsp?id=238675" class="btn btn-primary">Visualizza</a>
+				  </div>
+				</div>
+
 			</div>
 		</div>
 	</div>
