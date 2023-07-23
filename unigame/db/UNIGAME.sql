@@ -99,7 +99,7 @@ CREATE TABLE ticket(
 );
 
 CREATE TABLE recensione(
-    id int AUTO_INCREMENT NOT NULL,
+    id int NOT NULL,
     cliente VARCHAR(16) NOT NULL,
     videogioco BIGINT,
     data_e_ora DATETIME NOT NULL,

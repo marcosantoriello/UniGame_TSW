@@ -6,6 +6,8 @@ body {
     color: #444444;
 }
 
+
+
 a,
 a:hover {
     text-decoration: none;
@@ -93,6 +95,16 @@ li{
     background-color: white;
   }
 
-/* --- INDEX --- */
+.icona{
+	font-size:0;
+	width:40px;
+	height:40px;
+}
+
+.user{
+	font-size:0;
+	width:35px;
+	height:35px;
+}
 
 

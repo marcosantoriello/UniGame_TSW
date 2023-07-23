@@ -128,14 +128,14 @@
 								<% 
 									for(int i=1; i<=grado; i++){
 								%>
-									<img src="image\icon\star.svg" alt="star-piena" class="icona">
+									<img src="images\icon\star.svg" alt="star-piena" class="icona" style="font-size:0; width:40px; height:40px;">
 									
 								<% } %>
 								
 								<% 
 									for(int i=grado; i<5; i++){
 								%>
-									<img src="image\icon\star-vuota.svg" alt="star-vuota" class="icona")>
+									<img src="images\icon\star-vuota.svg" alt="star-vuota" class="icona" style="font-size:0; width:40px; height:40px;")>
 									
 								<% } %>
 							</ul>
@@ -181,7 +181,7 @@
 				<br/>
 				<div class="row">	
 					<div class="col-md-6 mb-3">
-						<label for="grado">Grado di Apprezzamento</label> <br /> <select name="grado"
+						<label for="grado">Grado di Apprezzamento</label> <br /> <select name="valutazione"
 							id="grado" class="form-control">
 							<option value="uno" id="uno">uno</option>
 							<option value="due" id="due">due</option>
