@@ -33,6 +33,7 @@
 		<%
 			if(!colProd.isEmpty()){
 				for(ProdottoFisicoBean prod: colProd){
+					
 		%>
 		
 		
@@ -42,23 +43,21 @@
 				
 					<form>
 						<input type="hidden" name="ProfottoFisicoID" value="<%=prod.getId()%>">
-						<a href="prodotto.jsp?id=<%=prod.getId()%>"><img class="card-img-top" src="ImageServlet?immagine=<%=prod.getId()%>.jpg" alt="Card image"></a>
+						<a href="prodotto.jsp?id=<%=prod.getId()%>"><img class="card-img-top" src="ImageServlet?immagine=prodotto_<%=prod.getId()%>.jpg" alt="Card image"></a>
 					</form>
 	
-					
-						<div class="card-body">
-						<!-- colonne da visualizzare ella collection  -->
-						<h5 class="nome"><%= prod.getNome()%></h5>
-						<h6 class="prezzo"> &euro; <%= prod.getPrezzo()%></h6>
+					<div class="card-body">
+					<!-- colonne da visualizzare ella collection  -->
+					<h5 class="nome"><%= prod.getNome()%></h5>
+					<h6 class="prezzo"> &euro; <%= prod.getPrezzo()%></h6>
 				
 						
-						
-						<!-- DA CONTROLLARE
-
-						 -->
+				
 					</div>
 				</div>
 			</div>
+			
+			
 		<%	
 				}
 			}

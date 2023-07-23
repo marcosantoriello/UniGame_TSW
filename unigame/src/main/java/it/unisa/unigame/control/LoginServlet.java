@@ -44,13 +44,17 @@ public class LoginServlet extends HttpServlet {
 		DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
 		try {
 			ruolo = getRuolo(email, password); //Prendo il ruolo
+
+			
 			ClienteBean clienteBean = null;
 			AmministratoreBean ammBean = null;
 			GestoreAssistenzaBean gestAssBean = null;
 			
 			if (ruolo.equals("cliente")) {
 				Cliente cliente = new ClienteDS(ds);
-				clienteBean = cliente.doRetrieveByKeyEmail("email");
+				System.out.println("la mail è : " + email);
+				clienteBean = cliente.doRetrieveByKeyEmail(email);
+
 				request.getSession().setAttribute("utente", clienteBean);	
 				//request.getSession().setAttribute("carrello", new Carrello(ds));
 			}
@@ -81,9 +85,8 @@ public class LoginServlet extends HttpServlet {
 		PreparedStatement preparedStmt3 = null;
 		
 		DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
-		
 		String query1 = "SELECT PASS_WORD, RUOLO FROM CLIENTE"
-				+ " WHERE EMAIL = ?";
+				+ " WHERE 	EMAIL = ?";
 		
 		String query2 = "SELECT PASS_WORD, RUOLO FROM AMMINISTRATORE"
 				+ " WHERE EMAIL = ?";
@@ -96,18 +99,18 @@ public class LoginServlet extends HttpServlet {
 		String ruolo3 = null;
 		
 		try {
-			
 			//CHECK CLIENTE
 			connection = ds.getConnection();
 			preparedStmt1 = connection.prepareStatement(query1);
 			preparedStmt1.setString(1, email);
 			//ESECUZIONE QUERY
+
 			ResultSet rs1 = preparedStmt1.executeQuery();
 			String password1 = null;
 			//ESTRAGGO PASSWORD E CONTROLLO
 			if (rs1.next()) {
 				password1 = rs1.getString("pass_word");
-				if (password1.equals(password))
+				if (password1.equals(password)) 
 					ruolo1 = rs1.getString("ruolo");
 			}
 			
