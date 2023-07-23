@@ -135,7 +135,7 @@
 <body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-<%@ include file="../fragments/headerNuovo.jsp" %>
+<%@ include file="/fragments/headerNuovo.jsp" %>
 
 <div class="col fixed-center d-flex justify-content-center align-items-center page">
 	<form action="SignUpClienteServlet" method="post" onsubmit="return validate(this)"> 

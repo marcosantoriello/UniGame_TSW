@@ -16,11 +16,11 @@
 		boolean isLogged=false;
 	
 		Carrello cart = (Carrello) session.getAttribute("carrello");
-		String ruoloCart = (String) session.getAttribute("ruoloCart");
+		String ruoloCart = (String) session.getAttribute("ruolo");
 			
 		if(ruoloCart == null){
 			 isLogged= false;
-		}else if(ruoloCart.equals("admin") || ruoloCart.equals("ass")){
+		}else if(ruoloCart.equals("admin") || ruoloCart.equals("gestAssist")){
 			response.sendRedirect(request.getContextPath() + "/errorPage.jsp");
 		}else if(ruoloCart.equals("cliente")){
 			isLogged = true;
