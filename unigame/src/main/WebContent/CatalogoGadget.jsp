@@ -43,7 +43,6 @@
 				
 					<form>
 						<input type="hidden" name="ProfottoFisicoID" value="<%=prod.getId()%>">
-						<%System.out.println("Codice Prodotto: " + prod.getId()); %>
 						<a href="prodottoGadget.jsp?id=<%=prod.getId()%>"> <img class="image-piccola card-img-top image-responsive" src="ImageServlet?immagine=prodotto_<%=prod.getId()%>.jpg" alt="Card image"> </a>
 					</form>
 	
@@ -51,9 +50,13 @@
 					<!-- colonne da visualizzare ella collection  -->
 					<h5 class="nome"><%= prod.getNome()%></h5>
 					<h6 class="prezzo"> &euro; <%= prod.getPrezzo()%></h6>
-					<a href="AggiungiCarrello?id=<%= prod.getId() %>&tipo=prodotto" class="btn">
-						<img src="images\icon\shopping-cart.png" alt="add-to-cart" class="icona">	
-					</a>
+					<%if (!prod.isDisponibile() || prod.getQuantità() == 0) {%>
+							<h6>Non disponibile</h6>
+					<%} else { %>
+						<a href="AggiungiCarrello?id=<%= prod.getId() %>&tipo=prodotto" class="btn">
+							<img src="images\icon\shopping-cart.png" alt="add-to-cart" class="icona">	
+						</a>
+					<%} %>
 						
 				
 					</div>

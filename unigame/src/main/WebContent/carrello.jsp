@@ -95,7 +95,7 @@
 			              <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
 			                <!-- Image -->
 			                <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
-			                  <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/12a.webp"
+			                  <img src="ImageServlet?immagine=video_<%=vid.getId()%>.jpg"
 			                    class="w-100" alt="Blue Jeans Jacket" />
 			                  <a href="#!">
 			                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
@@ -166,7 +166,7 @@
 			              <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
 			                <!-- Image -->
 			                <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
-			                  <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/13a.webp"
+			                  <img src="ImageServlet?immagine=prodotto_<%=prod.getId()%>.jpg"
 			                    class="w-100" />
 			                  <a href="#!">
 			                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>

@@ -56,10 +56,13 @@
 						<!-- colonne da visualizzare ella collection  -->
 						<h5 class="nome"><%= vid.getNome() %></h5>
 						<h6 class="prezzo"> &euro; <%= vid.getPrezzo()%></h6>
-						<a href="AggiungiCarrello?id=<%=vid.getId()%>&tipo=videogioco" class="btn">
-							<img src="images\icon\shopping-cart.png" alt="add-to-cart" class="icona">	
-						</a>
-						
+						<%if (!vid.isDisponibile() || vid.getQuantità() == 0) {%>
+							<h6>Non disponibile</h6>
+						<%} else { %>
+							<a href="AggiungiCarrello?id=<%=vid.getId()%>&tipo=videogioco" class="btn">
+								<img src="images\icon\shopping-cart.png" alt="add-to-cart" class="icona">	
+							</a>
+						<%} %>
 
 
 						</div>
