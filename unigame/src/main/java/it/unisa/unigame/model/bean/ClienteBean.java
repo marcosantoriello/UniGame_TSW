@@ -19,16 +19,7 @@ public class ClienteBean implements Serializable {
 	private boolean sospeso;
 	
 	public ClienteBean() {
-		this.codice_fiscale = null;
-		this.nome = null;
-		this.cognome = null;
-		this.username = null;
-		this.email = null;
-		this.password = null;
-		this.ind_fatturazione = null;
-		this.data_di_nascita = null;
-		this.conta_ordine_rel = 0;
-		this.sospeso = false;	
+		super();
 	}
 
 	public ClienteBean(String codice_fiscale, String nome, String cognome, String username, String email, String password,

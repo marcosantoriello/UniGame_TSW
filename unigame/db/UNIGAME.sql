@@ -101,14 +101,12 @@ CREATE TABLE ticket(
 CREATE TABLE recensione(
     id int AUTO_INCREMENT NOT NULL,
     cliente VARCHAR(16) NOT NULL,
-    prodotto BIGINT,
     videogioco BIGINT,
     data_e_ora DATETIME NOT NULL,
     descrizione VARCHAR(500),
     indice_di_gradimento enum('uno','due','tre','quattro','cinque') NOT NULL,
     PRIMARY KEY(id),
     FOREIGN KEY(cliente) REFERENCES cliente(codice_fiscale) ON UPDATE CASCADE ON DELETE CASCADE,
-    FOREIGN KEY(prodotto) REFERENCES prodotto_fisico(id) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY(videogioco) REFERENCES videogioco(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
@@ -118,7 +116,6 @@ CREATE TABLE ordine(
     data_e_ora DATETIME NOT NULL,
     importo_totale DECIMAL(6,2) NOT NULL,
     num_carta BIGINT NOT NULL,
-    fattura BOOLEAN DEFAULT FALSE,
     PRIMARY KEY(id),
     FOREIGN KEY(cliente) REFERENCES cliente(codice_fiscale) ON UPDATE CASCADE ON DELETE CASCADE
 );

@@ -27,7 +27,7 @@ private static final String TABLE_NAME = "num_telefono";
 		PreparedStatement preparedStmt = null;
 		
 		String insertSQL = "INSERT INTO " + TABLE_NAME + "(NUMERO, CLIENTE) "
-				+ "VALUES(?, ?)";
+				+ " VALUES(?, ?)";
 		
 		try {
 			connection = ds.getConnection();
@@ -88,7 +88,7 @@ private static final String TABLE_NAME = "num_telefono";
 		int result = 0;
 		
 		String deleteSQL = "DELETE FROM " + TABLE_NAME 
-				+ "WHERE NUMERO = ?";
+				+ " WHERE NUMERO = ?";
 		
 		try {
 			connection = ds.getConnection();

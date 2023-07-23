@@ -15,6 +15,7 @@ import javax.sql.DataSource;
 
 import it.unisa.unigame.model.DAO.*;
 import it.unisa.unigame.model.bean.*;
+import it.unisa.unigame.model.bean.RecensioneBean.Indice_gradimento;
 import it.unisa.unigame.model.bean.TicketBean.Categoria;
 import it.unisa.unigame.model.bean.VideogiocoBean.Pegi;
 
@@ -108,13 +109,13 @@ public class ServletPopolamento extends HttpServlet {
 		VideogiocoBean vid20 = new VideogiocoBean(222544, "Assassin's Creed: Odyssey", 65, 8, true, Pegi.diciotto, 2018, "Ubisoft");
 		
 		//Prodotti Fisici
-		ProdottoFisicoBean prod1 = new ProdottoFisicoBean(23, "Funko Pop Taz", 16, 3, true);
-		ProdottoFisicoBean prod2 = new ProdottoFisicoBean(234, "Peluche Pokemon Charmander", 25, 5, true);
-		ProdottoFisicoBean prod3 = new ProdottoFisicoBean(177, "Peluche Pokemon Charmander", 79, 4, true);
-		ProdottoFisicoBean prod4 = new ProdottoFisicoBean(14, "Cable guy Crash", 29, 2, true);
-		ProdottoFisicoBean prod5 = new ProdottoFisicoBean(90, "Astuccio Fortnite", 17, 5, true);
-		ProdottoFisicoBean prod6 = new ProdottoFisicoBean(89, "Xbox Stereo Headset", 49, 0, false);
-		ProdottoFisicoBean prod7 = new ProdottoFisicoBean(89, "Zaino Pokemon", 22,0 , false);
+		ProdottoFisicoBean prod1 = new ProdottoFisicoBean(238675, "Funko Pop Taz", 16, 3, true);
+		ProdottoFisicoBean prod2 = new ProdottoFisicoBean(234978, "Peluche Pokemon Piakchu", 25, 5, true);
+		ProdottoFisicoBean prod3 = new ProdottoFisicoBean(177123, "Peluche Pokemon Charmander", 79, 4, true);
+		ProdottoFisicoBean prod4 = new ProdottoFisicoBean(145690, "Cable guy Crash", 29, 2, true);
+		ProdottoFisicoBean prod5 = new ProdottoFisicoBean(901122, "Astuccio Fortnite", 17, 5, true);
+		ProdottoFisicoBean prod6 = new ProdottoFisicoBean(898912, "Xbox Stereo Headset", 49, 0, false);
+		ProdottoFisicoBean prod7 = new ProdottoFisicoBean(897246, "Zaino Pokemon", 22,0 , false);
 		
 		//Tickets
 		TicketBean tick1 = new TicketBean(01, LocalDateTime.of(2023, 2, 26,19,23), "RSSMRA03A18D615L", "PRTPQL80A01H501C", Categoria.ordine, "Salve, vorrei sapere a che punto è l’ordine che ho effettuato in data 20/02/23", true);
@@ -122,23 +123,23 @@ public class ServletPopolamento extends HttpServlet {
 		TicketBean tick3 = new TicketBean(03, LocalDateTime.of(2022, 4, 4, 11, 12), "RSSMRA03A18D615L", "PRTPQL80A01H501C", Categoria.ordine, "Buon pomeriggio, mi scuso per il disturbo ma la chiave di attivazione che ho acquistato mi dà un errore", true);
 		
 		//Ordine
-		OrdineBean order1= new OrdineBean(1265,LocalDateTime.of(2023, 02, 23, 22, 45),5635672899376L, 15.98f,"RSSMRA03A18D615L", false);
-		OrdineBean order2= new OrdineBean(2376,LocalDateTime.of(2022, 11, 3, 9, 33),2982435672819L, 90.78f,"VRDPPL80D13F138U", false);
-		OrdineBean order3= new OrdineBean(2341,LocalDateTime.of(2022, 10, 8, 16, 17),1256370982715L, 39.79f,"CRSBCH80A01H501J", false);
-		OrdineBean order4= new OrdineBean(2468,LocalDateTime.of(2023, 01, 13, 23, 55),234516728901L, 129.88f,"TRRRRT80A01H703E", false);
-		OrdineBean order5= new OrdineBean(4211,LocalDateTime.of(2023, 11, 3, 19, 23),2982435672819L, 90.78f,"RSSMRA03A18D615L", false);
-		OrdineBean order6= new OrdineBean(8977,LocalDateTime.of(2023, 04, 2, 12, 56),1115627893098L, 90.78f,"RSSMRA03A18D615L", false);
-		OrdineBean order7= new OrdineBean(4567,LocalDateTime.of(2023, 03, 23, 9, 43),3114255431277L, 90.78f,"CRSBCH80A01H501J", false);
+		OrdineBean order1= new OrdineBean(1265,LocalDateTime.of(2023, 02, 23, 22, 45),5635672899376L, 15.98f,"RSSMRA03A18D615L");
+		OrdineBean order2= new OrdineBean(2376,LocalDateTime.of(2022, 11, 3, 9, 33),2982435672819L, 90.78f,"VRDPPL80D13F138U");
+		OrdineBean order3= new OrdineBean(2341,LocalDateTime.of(2022, 10, 8, 16, 17),1256370982715L, 39.79f,"CRSBCH80A01H501J");
+		OrdineBean order4= new OrdineBean(2468,LocalDateTime.of(2023, 01, 13, 23, 55),234516728901L, 129.88f,"TRRRRT80A01H703E");
+		OrdineBean order5= new OrdineBean(4211,LocalDateTime.of(2023, 11, 3, 19, 23),2982435672819L, 90.78f,"RSSMRA03A18D615L");
+		OrdineBean order6= new OrdineBean(8977,LocalDateTime.of(2023, 04, 2, 12, 56),1115627893098L, 90.78f,"RSSMRA03A18D615L");
+		OrdineBean order7= new OrdineBean(4567,LocalDateTime.of(2023, 03, 23, 9, 43),3114255431277L, 90.78f,"CRSBCH80A01H501J");
 		
 		//ComprendeOP
-		ComprendeOPBean cOP0= new ComprendeOPBean(23,1265);
-		ComprendeOPBean cOP1= new ComprendeOPBean(177,2468);
-		ComprendeOPBean cOP2= new ComprendeOPBean(89,2468);
-		ComprendeOPBean cOP3= new ComprendeOPBean(234,2341);
-		ComprendeOPBean cOP4= new ComprendeOPBean(33,4211);
-		ComprendeOPBean cOP5= new ComprendeOPBean(23,8977);
-		ComprendeOPBean cOP6= new ComprendeOPBean(54,8977);
-		ComprendeOPBean cOP7= new ComprendeOPBean(100,8977);
+		ComprendeOPBean cOP0= new ComprendeOPBean(238675,1265);
+		ComprendeOPBean cOP1= new ComprendeOPBean(177123,2468);
+		ComprendeOPBean cOP2= new ComprendeOPBean(898912,2468);
+		ComprendeOPBean cOP3= new ComprendeOPBean(234978,2341);
+		ComprendeOPBean cOP4= new ComprendeOPBean(897246,4211);
+		ComprendeOPBean cOP5= new ComprendeOPBean(238675,8977);
+		ComprendeOPBean cOP6= new ComprendeOPBean(901122,8977);
+		ComprendeOPBean cOP7= new ComprendeOPBean(145690,8977);
 		
 		//ComprendeOV
 		ComprendeOVBean cOV0= new ComprendeOVBean(894354,4567);
@@ -149,6 +150,13 @@ public class ServletPopolamento extends HttpServlet {
 		ComprendeOVBean cOV5= new ComprendeOVBean(962365,2341);
 		ComprendeOVBean cOV6= new ComprendeOVBean(446002,8977);
 		
+		//Recensione
+		RecensioneBean rec1 = new RecensioneBean(1, "VRDPPL80D13F138U", 693302, LocalDateTime.of(2023, 02, 23, 18, 16),"Niente male, non come mi aspettavo però, troppa pubblicità quando poi non è niente di che", Indice_gradimento.tre);
+		RecensioneBean rec2 = new RecensioneBean(2, "VRDPPL80D13F138U", 660563, LocalDateTime.of(2023, 03, 13, 12, 15),"Semplicemente, FIFA1", Indice_gradimento.cinque);
+		RecensioneBean rec3 = new RecensioneBean(3, "CRSBCH80A01H501J", 446002, LocalDateTime.of(2023, 03, 15, 15, 58),"Favoloso! Lo consiglio!", Indice_gradimento.cinque);
+		RecensioneBean rec4 = new RecensioneBean(4, "TRRRRT80A01H703E", 228491, LocalDateTime.of(2023, 04, 10, 10, 33),"Niente male!", Indice_gradimento.quattro);
+		RecensioneBean rec5 = new RecensioneBean(5, "RFFDNC05A54H501O", 563945, LocalDateTime.of(2023, 07, 12, 21, 21),"Bene.", Indice_gradimento.cinque);
+		RecensioneBean rec6 = new RecensioneBean(6, "RSSMRA03A18D615L", 222544, LocalDateTime.of(2023, 03, 23, 17, 11),"Bel gioco ma troppi bug che andrebbero risolti.", Indice_gradimento.tre);
 		try {
 			ammDs.doSave(amm1);
 			ammDs.doSave(amm2);
@@ -164,10 +172,10 @@ public class ServletPopolamento extends HttpServlet {
 			clDS.doSave(cl5);
 			
 			telDS.doSave(tel1);
-			telDS.doSave(tel1);
-			telDS.doSave(tel1);
-			telDS.doSave(tel1);
-			telDS.doSave(tel1);
+			telDS.doSave(tel2);
+			telDS.doSave(tel3);
+			telDS.doSave(tel4);
+			telDS.doSave(tel5);
 			
 			prodDS.doSave(prod1);
 			prodDS.doSave(prod2);
@@ -228,6 +236,13 @@ public class ServletPopolamento extends HttpServlet {
 			ovDS.doSave(cOV4);
 			ovDS.doSave(cOV5);
 			ovDS.doSave(cOV6);
+			
+			rDS.doSave(rec1);
+			rDS.doSave(rec2);
+			rDS.doSave(rec3);
+			rDS.doSave(rec4);
+			rDS.doSave(rec5);
+			rDS.doSave(rec6);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
