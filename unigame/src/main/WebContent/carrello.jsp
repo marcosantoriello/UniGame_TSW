@@ -239,7 +239,7 @@
 			              <li
 			                class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
 			                Prodotti
-			                <span><%=  %></span>
+			                <span><%= (prodRel+vidRel) %></span>
 			              </li>
 			              <li class="list-group-item d-flex justify-content-between align-items-center px-0">
 			                Spedizione
@@ -253,7 +253,7 @@
 			                    <p class="mb-0">(IVA inclusa)</p>
 			                  </strong>
 			                </div>
-			                <span><strong><%= (prodRel+vidRel) %> &#8364</strong></span>
+			                <span><strong><%= (prodRel+vidRel+5.99f) %> &#8364</strong></span>
 			              </li>
 			            </ul>
 			
