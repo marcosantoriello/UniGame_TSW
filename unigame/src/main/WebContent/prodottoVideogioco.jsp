@@ -9,7 +9,6 @@
 		response.sendRedirect(request.getContextPath() + "/errorPage.jsp");
 	}
 	String id_p = (String) request.getParameter("id");
-	System.out.println(id_p);
 	int id = Integer.parseInt(id_p);
 	
 	DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
@@ -69,7 +68,7 @@
 	               
 	               %>
 	               <br/>
-	               <a href="AggiungiCarrello?id=<%=vidBean.getId()%>" class="btn border-dark"> 
+	               <a href="AggiungiCarrello?id=<%=vidBean.getId()%>&tipo=videogioco" class="btn border-dark"> 
 	               		 Aggiungi al carrello
 				   </a>
 				   <%

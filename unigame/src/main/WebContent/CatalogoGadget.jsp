@@ -51,7 +51,7 @@
 					<!-- colonne da visualizzare ella collection  -->
 					<h5 class="nome"><%= prod.getNome()%></h5>
 					<h6 class="prezzo"> &euro; <%= prod.getPrezzo()%></h6>
-					<a href="AggiungiCarrello?id=<%= prod.getId() %>" class="btn">
+					<a href="AggiungiCarrello?id=<%= prod.getId() %>&tipo=prodotto" class="btn">
 						<img src="images\icon\shopping-cart.png" alt="add-to-cart" class="icona">	
 					</a>
 						

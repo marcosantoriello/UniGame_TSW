@@ -52,11 +52,12 @@ public class LoginServlet extends HttpServlet {
 			
 			if (ruolo.equals("cliente")) {
 				Cliente cliente = new ClienteDS(ds);
-				System.out.println("Sono un cliente");
+				Carrello carrello = new Carrello(ds);
 				clienteBean = cliente.doRetrieveByKeyEmail(email);
 				System.out.println("Nome cliente: " + clienteBean.getCodice_fiscale());
 				request.getSession().setAttribute("utente", clienteBean);	
-				request.getSession().setAttribute("carrello", new Carrello(ds));
+				request.getSession().setAttribute("carrello", carrello);
+				//System.out.println("Carrello Utente: " + carrello.toString());
 			}
 			else if (ruolo.equals("gestAssist")) {
 				GestoreAssistenza gestAss = new GestoreAssistenzaDS(ds);
@@ -130,7 +131,7 @@ public class LoginServlet extends HttpServlet {
 			String password3 = null;
 			if (rs3.next()) {
 				password3 = rs3.getString("pass_word");
-				System.out.println("Ruolo: " + rs3.getString("ruolo"));
+				//System.out.println("Ruolo: " + rs3.getString("ruolo"));
 				if (password3.equals(password))
 					ruolo3 = rs3.getString("ruolo");
 			} 

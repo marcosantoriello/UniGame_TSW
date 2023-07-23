@@ -37,24 +37,25 @@ public class AggiungiCarrello extends HttpServlet {
 		if(ruolo != null) {
 			Carrello carrello = (Carrello) request.getSession().getAttribute("carrello");
 			//mi faccio passare l'id e la quantità in questione dalla jsp
-			int qtaProdotto=(int) request.getSession().getAttribute("qta");
-			int id=(int) request.getSession().getAttribute("id");
-			
+			String id_p = (String) request.getParameter("id");
+			int id = Integer.parseInt(id_p);
+			String tipo = (String) request.getParameter("tipo");
 			//in base alla quantità selezionata
-			
-			for(int i=0; i<qtaProdotto;i++) {
-				//nel caso in cui sia un videogioco
-				if(request.getParameter("tipo").equals("videogioco")) {
-										
-					//lo aggiungo al carrello
-					carrello.addVideogame(id);
-				}
-				else {
-					
-					//lo aggiungo al carrello
-					carrello.addProduct(id);
-				}
+			System.out.println(tipo);
+			//nel caso in cui sia un videogioco
+			if(tipo.equals("videogioco")) {
+				
+				//lo aggiungo al carrello
+				carrello.addVideogame(id);
+				response.sendRedirect(request.getContextPath() + "/Catalogo.jsp");
 			}
+			else {
+					
+				//lo aggiungo al carrello
+				carrello.addProduct(id);
+				response.sendRedirect(request.getContextPath() + "/CatalogoGadget.jsp");
+			}
+			
 				
 		}
 		//nel caso in cui non sia loggato non può accedere al carrello

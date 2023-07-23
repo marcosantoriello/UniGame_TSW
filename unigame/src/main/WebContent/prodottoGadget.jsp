@@ -62,7 +62,7 @@
                
                					%>
                				<br/>
-               				<a href="AggiungiCarrello?id=<%=prodBean.getId()%>" class="btn border-dark"> 
+               				<a href="AggiungiCarrello?id=<%=prodBean.getId()%>&tipo=prodotto" class="btn border-dark"> 
                		 			Aggiungi al carrello
 			   				</a>
 			  				 	<%
