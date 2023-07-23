@@ -1,4 +1,4 @@
-<%@ page language="java"  import=" java.text.SimpleDateFormat, it.unisa.unigame.model.bean.Carrello, java.util.*, it.unisa.unigame.model.bean.VideogiocoBean, it.unisa.unigame.model.bean.ProdottoFisicoBean" contentType="text/html; charset=UTF-8"
+ <%@ page language="java"  import=" java.text.SimpleDateFormat, it.unisa.unigame.model.bean.Carrello, java.util.*, it.unisa.unigame.model.bean.VideogiocoBean, it.unisa.unigame.model.bean.ProdottoFisicoBean" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
 <html>
@@ -239,7 +239,7 @@
 			              <li
 			                class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
 			                Prodotti
-			                <span><%= (prodRel+vidRel) %></span>
+			                <span><%=  %></span>
 			              </li>
 			              <li class="list-group-item d-flex justify-content-between align-items-center px-0">
 			                Spedizione
@@ -253,7 +253,7 @@
 			                    <p class="mb-0">(IVA inclusa)</p>
 			                  </strong>
 			                </div>
-			                <span><strong><%= (prodRel+vidRel+5.99) %> &#8364</strong></span>
+			                <span><strong><%= (prodRel+vidRel) %> &#8364</strong></span>
 			              </li>
 			            </ul>
 			
