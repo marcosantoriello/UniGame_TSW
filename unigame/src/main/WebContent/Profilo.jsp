@@ -25,7 +25,7 @@
 			if(ruoloProf.equals("cliente")){
 				ClienteBean utente= (ClienteBean) session.getAttribute("utente");
 				Telefono tel= new TelefonoDS(ds);
-				Collection<TelefonoBean> telbean= tel.doRetrieveAll(utente.getCodice_fiscale());
+				Collection<TelefonoBean> telbean= tel.doRetrieveAll(null);
 		
 		%>
 		

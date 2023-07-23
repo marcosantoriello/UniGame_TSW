@@ -160,7 +160,7 @@ private static final String TABLE_NAME = "num_telefono";
 			while(rs.next()) {
 				TelefonoBean bean = new TelefonoBean();
 				bean.setCliente_cf(rs.getString("cliente"));
-				bean.setNumero(rs.getInt("numero"));
+				bean.setNumero(rs.getLong("numero"));
 				tel.add(bean);
 			}
 		}

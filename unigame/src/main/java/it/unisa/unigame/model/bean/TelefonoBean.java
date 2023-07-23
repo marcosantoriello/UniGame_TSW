@@ -24,7 +24,7 @@ public class TelefonoBean implements Serializable{
 		return numero;
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(long numero) {
 		this.numero = numero;
 	}
 

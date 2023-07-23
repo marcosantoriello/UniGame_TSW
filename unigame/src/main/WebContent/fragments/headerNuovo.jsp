@@ -180,7 +180,7 @@
           						Account
         					</a>
         					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          						<a class="dropdown-item" href="profilo.jsp">Il mio profilo</a>
+          						<a class="dropdown-item" href="Profilo.jsp">Il mio profilo</a>
           						<div class="dropdown-divider"></div>
           							<a class="dropdown-item" href="#">Logout</a>
         					</div>
