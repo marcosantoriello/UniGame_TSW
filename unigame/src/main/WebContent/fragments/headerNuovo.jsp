@@ -70,8 +70,23 @@
 		        		<li class="nav-item">
 		          			<a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
 		        		</li>
+		        			<li class="nav-item dropdown">
+        					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          						Negozio
+        					</a>
+        					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          						<a class="dropdown-item" href="Catalogo.jsp">Videogiochi</a>
+          						<a class="dropdown-item" href="CatalogoGadget.jsp">Gadgets</a>
+        					</div>
+        				</li>
 		         		<li class="nav-item">
 		         		 	<a class="nav-link" href="chiSiamo.jsp">Contatta Assistenza</a>
+		        		</li>
+		        		<li class="nav-item">
+		         		 	<a class="nav-link" href="chiSiamo.jsp">Chi siamo</a>
+		        		</li>
+		        		<li class="nav-item">
+		         		 	<a class="nav-link" href="chiSiamo.jsp">Carrello</a>
 		        		</li>
 		        		<li class="nav-item dropdown">
         					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -80,7 +95,6 @@
         					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
           						<a class="dropdown-item" href="profilo.jsp">Il mio profilo</a>
           						<a class="dropdown-item" href="#">I miei ordini</a>
-          						<a class="dropdown-item" href="carrello.jsp">Carrello</a>
           						<div class="dropdown-divider"></div>
           							<a class="dropdown-item" href="#">Logout</a>
         					</div>
@@ -104,6 +118,16 @@
 		      		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 		        		<li class="nav-item">
 		          			<a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
+		          		</li>
+		          		<li class="nav-item dropdown">
+        				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          					Negozio
+        				</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          					<a class="dropdown-item" href="Catalogo.jsp">Videogiochi</a>
+          					<a class="dropdown-item" href="CatalogoGadget.jsp">Gadgets</a>
+        				</div>
+        				</li>
 		        		<li class="nav-item">
 		         		 	<a class="nav-link" href="chiSiamo.jsp">Tickets</a>
 		        		</li>
@@ -136,6 +160,15 @@
 		        		<li class="nav-item">
 		          			<a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
 		        		</li>
+		        		<li class="nav-item dropdown">
+        				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          					Negozio
+        				</a>
+        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          					<a class="dropdown-item" href="Catalogo.jsp">Videogiochi</a>
+          					<a class="dropdown-item" href="CatalogoGadget.jsp">Gadgets</a>
+        				</div>
+        				</li>
 		        		<li class="nav-item">
 		         		 	<a class="nav-link" href="chiSiamo.jsp">Aggiorna catalogo</a>
 		        		</li>
