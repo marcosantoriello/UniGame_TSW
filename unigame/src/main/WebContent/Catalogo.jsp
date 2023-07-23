@@ -50,7 +50,9 @@
 						<!-- colonne da visualizzare ella collection  -->
 						<h5 class="nome"><%= vid.getNome() %></h5>
 						<h6 class="prezzo"> &euro; <%= vid.getPrezzo()%></h6>
-				
+						<a href="ImageServlet?id=<%= vid.getId() %>" class="btn">
+							<img src="images\icon\shopping-cart.png" alt="add-to-cart" class="icona">	
+						</a>
 						
 						
 						<!-- DA CONTROLLARE
