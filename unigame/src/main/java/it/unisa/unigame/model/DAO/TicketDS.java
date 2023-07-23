@@ -107,7 +107,7 @@ public class TicketDS implements Ticket{
 		int result = 0;
 		
 		String deleteSQL = "DELETE FROM " + TicketDS.TABLE_NAME
-				+ "WHERE NUM_TICKET = ?";
+				+ " WHERE NUM_TICKET = ?";
 		
 		try {
 			connection = ds.getConnection();

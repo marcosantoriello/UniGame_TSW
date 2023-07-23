@@ -3,6 +3,7 @@ package it.unisa.unigame.control;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.Random;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,8 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
-
-import com.mysql.cj.Session;
 
 import it.unisa.unigame.model.DAO.ClienteDS;
 import it.unisa.unigame.model.DAO.TicketDS;
@@ -47,6 +46,16 @@ public class TicketCreato extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Random rand = new Random();
+		int scelta = rand.nextInt(0, 2);
+		String gestore = null;
+		//System.out.println(scelta);
+		if (scelta == 0) {
+			gestore = "PRTPQL80A01H501C";
+		}
+		else {
+			gestore = "MMBNRC80A01F138W";
+		}
 		String email = request.getParameter("email");
         Categoria category = Categoria.valueOf(request.getParameter("category"));
         String requestBody = request.getParameter("requestBody");
@@ -57,6 +66,7 @@ public class TicketCreato extends HttpServlet {
 		ClienteBean userBean= (ClienteBean)request.getSession().getAttribute("utente") ;
 		try {
 			String cf=userBean.getCodice_fiscale();
+			ticket.setGestore(gestore);
 			ticket.setCliente(cf);
 			ticket.setMessaggio(requestBody);
 			ticket.setData_e_ora(LocalDateTime.now());
@@ -64,7 +74,7 @@ public class TicketCreato extends HttpServlet {
 			ticket.setNum_ticket(0);
 			ticket.setRisolto(false);
 			ticketDS.doSave(ticket);
-			System.out.println("mess="+ticket.getMessaggio());
+			//System.out.println("mess="+ticket.getMessaggio());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
