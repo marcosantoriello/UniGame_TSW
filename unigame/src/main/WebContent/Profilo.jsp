@@ -117,7 +117,7 @@
 		</section>
 		<%
 			}if(ruoloProf.equals("gestAssist")){
-				GestoreAssistenzaBean gest= (GestoreAssistenzaBean)session.getAttribute("gestAssBean");
+				GestoreAssistenzaBean gest = (GestoreAssistenzaBean) session.getAttribute("utente");
 			
 		%>
 		
@@ -174,8 +174,8 @@
 		
 		<%
 		}if(ruoloProf.equals("admin")){
-				AmministratoreBean amm= (AmministratoreBean)session.getAttribute("ammBean");
-			
+				AmministratoreBean amm = (AmministratoreBean) session.getAttribute("utente");
+				System.out.println("Amministratore: " + amm.getNome());
 		%>
 		
 		<section>
