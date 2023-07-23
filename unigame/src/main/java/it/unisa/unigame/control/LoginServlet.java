@@ -44,7 +44,6 @@ public class LoginServlet extends HttpServlet {
 		DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
 		try {
 			ruolo = getRuolo(email, password); //Prendo il ruolo
-
 			
 			ClienteBean clienteBean = null;
 			AmministratoreBean ammBean = null;
@@ -52,9 +51,9 @@ public class LoginServlet extends HttpServlet {
 			
 			if (ruolo.equals("cliente")) {
 				Cliente cliente = new ClienteDS(ds);
-				System.out.println("la mail è : " + email);
+				System.out.println("Sono un cliente");
 				clienteBean = cliente.doRetrieveByKeyEmail(email);
-
+				System.out.println("Nome cliente: " + clienteBean.getCodice_fiscale());
 				request.getSession().setAttribute("utente", clienteBean);	
 				//request.getSession().setAttribute("carrello", new Carrello(ds));
 			}
@@ -73,7 +72,7 @@ public class LoginServlet extends HttpServlet {
 			redirectPage = "/index.jsp";
 		} catch (Exception e) {
 			request.getSession().setAttribute("ruolo", null);
-			redirectPage = "/errorPage.jsp"; //CAMBIA REDIRECT --- E' SOLO UN TEST
+			redirectPage = "/signupPage.jsp"; 
 		}
 		response.sendRedirect(request.getContextPath() + redirectPage);
 	}
@@ -112,6 +111,7 @@ public class LoginServlet extends HttpServlet {
 				password1 = rs1.getString("pass_word");
 				if (password1.equals(password)) 
 					ruolo1 = rs1.getString("ruolo");
+					
 			}
 			
 			//CHECK ADMIN

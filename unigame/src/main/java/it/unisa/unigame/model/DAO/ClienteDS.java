@@ -188,7 +188,7 @@ public class ClienteDS implements Cliente{
 		ClienteBean bean = new ClienteBean();
 		
 		String selectSQL = "SELECT * FROM " + ClienteDS.TABLE_NAME
-				+ "WHERE EMAIL =  ?";
+				+ " WHERE EMAIL =  ?";
 		
 		try {
 			connection = ds.getConnection();
