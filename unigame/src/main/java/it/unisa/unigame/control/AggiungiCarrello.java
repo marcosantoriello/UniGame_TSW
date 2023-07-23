@@ -31,7 +31,8 @@ public class AggiungiCarrello extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String ruolo = (String) request.getSession().getAttribute("roles");
+		String ruolo = (String) request.getSession().getAttribute("ruolo");
+		System.out.println("ruolo=" +ruolo);
 		
 		if(ruolo != null) {
 			Carrello carrello = (Carrello) request.getSession().getAttribute("carrello");

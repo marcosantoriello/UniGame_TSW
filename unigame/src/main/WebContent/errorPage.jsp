@@ -12,7 +12,7 @@
 <body>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 	
-	<%@ include file="../fragments/headerNuovo.jsp" %>
+	<%@ include file="/fragments/headerNuovo.jsp" %>
 	<div class="container page">
 		<div class="alert alert-danger alert-dismissible fade show">
 		    <h4 class="alert-heading"><i class="bi-exclamation-octagon-fill"></i> Oops! Qualcosa è andato storto.</h4>

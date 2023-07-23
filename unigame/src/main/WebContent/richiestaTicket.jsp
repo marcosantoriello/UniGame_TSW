@@ -22,43 +22,15 @@
 		
 	</head>
 	<body>
-		<script>
-			function redirectToJSP(var page){
-				window.location.href=page;
-			}
-			
-			function submitForm() {
-			    // Ottengo i valori dai campi del form
-			    var email = document.getElementById('exampleInputEmail1').value;
-			    var category = document.getElementById('exampleInputEmail3').value;
-			    var requestBody = document.getElementById('exampleFormControlTextarea1').value;
-			    
-			    // Creo un oggetto con i dati del form da inviare alla servlet
-			    var formData = {
-			      email: email,
-			      category: category,
-			      requestBody: requestBody
-			    };
-			    
-			    // Effettuo la richiesta HTTP POST alla servlet
-			    var xhttp = new XMLHttpRequest();
-			    xhttp.onreadystatechange = function() {
-			      if (this.readyState === 4 && this.status === 200) {
-			        // Gestisco la risposta dalla servlet, se necessario
-			        window.location.href = "ticketEffettuato.jsp";
-			      }
-			    };
-			    xhttp.open("POST", "TicketCreato", true);
-			  }
-		</script>
+		
 		
 		<%@include file="/fragments/headerNuovo.jsp"  %>
 		
 	
-		<form>
+		<form action="TicketCreato">
 		  <div class="form-group">
 		    <label for="exampleInputEmail1">Email</label>
-		    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+		    <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
 		    <small id="emailHelp" class="form-text text-muted">Non mostreremo a nessuno la tua email.</small>
 		  </div>
 		  
@@ -69,7 +41,7 @@
 		  
 		  <div class="form-group">
 		    <label for="exampleInputEmail3">Categoria</label>
-		    <select class="form-control" id="exampleInputEmail3">
+		    <select class="form-control" name="category" id="exampleInputEmail3">
 			  <option>account</option>
 			  <option>pagamento</option>
 			  <option>ordine</option>
@@ -80,10 +52,10 @@
 		  
 		  <div class="form-group">
 			 <label for="exampleFormControlTextarea1">Corpo della richiesta</label>
-			 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+			 <textarea class="form-control" name="requestBody" id="exampleFormControlTextarea1" rows="3"></textarea>
 		  </div>
 		
-		<button type="submit" class="btn btn-primary"  onclick="redirectToJSP(ticketEffettuato.jsp)">Submit</button>
+		<button type="submit" class="btn btn-primary" >Submit</button>
 		
 		</form>
 				

@@ -29,7 +29,7 @@
 </head>
 <body>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-	<%@ include file="../fragments/headerNuovo.jsp" %>
+	<%@ include file="/fragments/headerNuovo.jsp" %>
 	<div class="container page">
 		<div class="card-header my-3">
 			<h2>Catalogo Videogiochi</h2>
