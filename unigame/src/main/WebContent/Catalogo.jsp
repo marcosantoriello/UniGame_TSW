@@ -24,7 +24,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="style/style.css" rel="stylesheet">
-<link rel="icon" type="image/png" sizes="32x32" href="img/icon/favicon.png">
 <title>Catalogo Videogiochi</title>
 </head>
 <body>

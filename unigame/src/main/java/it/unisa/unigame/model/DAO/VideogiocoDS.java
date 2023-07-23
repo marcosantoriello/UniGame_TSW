@@ -68,7 +68,7 @@ static final String  TABLE_NAME= "videogioco";
 		PreparedStatement preparedStmt = null;
 		
 		String updateSQl = "UPDATE " + VideogiocoDS.TABLE_NAME
-				+ " SET ID = ?, NOME = ?, PREZZO = ?, QUANTITA = ?,PEGI= ?,ANNO_PRODUZIONE= ?, DISPONIBILE= ?, PRODUTTORE= ?, WHERE ID = ?";
+				+ " SET ID = ?, NOME = ?, PREZZO = ?, QUANTITA = ?, PEGI= ?, ANNO_PRODUZIONE= ?, DISPONIBILE= ?, PRODUTTORE= ?" + " WHERE ID = ?";
 		
 		try {
 			connection = ds.getConnection();
@@ -82,6 +82,7 @@ static final String  TABLE_NAME= "videogioco";
 			preparedStmt.setInt(6, bean.getAnno_produzione());
 			preparedStmt.setBoolean(7, bean.isDisponibile());
 			preparedStmt.setString(8, bean.getProduttore());
+			preparedStmt.setInt(9, bean.getId());
 			
 			preparedStmt.executeUpdate();
 			

@@ -22,7 +22,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Gestione Videogiochi</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="style/style.css">
 		<script src="script/jquery-3.6.0.min.js"></script>
 </head>
@@ -38,14 +38,13 @@
 				document.getElementById("pagina").innerHTML = this.responseText;
 			}
 		};
-		xhttp.open("GET","RemFromCatalogServlet?id=" + id,true);
+		xhttp.open("GET","RemFromCatalogServlet?id=" + id + "&tipo=videogioco",true);
 		xhttp.send();
 	}
 	</script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-	
-	<div id="pagina">
 	<%@ include file="/fragments/headerNuovo.jsp" %>
+	<div id="pagina">
 	<div class="container" id="cont">
 		<div class="card-header my-3">
 			<h2>Gestione Videogiochi</h2>
@@ -74,7 +73,7 @@
 					<div class="card-body">
 						<h5 class="card-title"><%= vid.getNome() %></h5>
 						<h6 class="price"> &euro; <%= vid.getPrezzo() %></h6>
-						<button type="button" class="btn border-dark" onclick='remOggetto("<%= vid.getId() %>")'><img src="images\icon\trash.svg" alt="rem-videog" class="icona" style="font-size:0; width:40px; height:40px;"></button>
+						<button type="button" class="btn border-dark" onclick='remOggetto("<%= vid.getId() %>"); alert("Prodotto Rimosso")'><img src="images\icon\trash.svg" alt="rem-videog" class="icona" style="font-size:0; width:40px; height:40px;"></button>
 					</div>
 				</div>
 			</div>

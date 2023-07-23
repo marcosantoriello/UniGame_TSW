@@ -65,7 +65,7 @@ public class ProdottoFisicoDS implements ProdottoFisico{
 		PreparedStatement preparedStmt = null;
 		
 		String updateSQl = "UPDATE " + ProdottoFisicoDS.TABLE_NAME
-				+ " SET ID = ?, NOME = ?, PREZZO = ?, QUANTITA = ?, DISPONIBILE= ?, WHERE ID = ?";
+				+ " SET ID = ?, NOME = ?, PREZZO = ?, QUANTITA = ?, DISPONIBILE = ?" + " WHERE ID = ?";
 		
 		try {
 			connection = ds.getConnection();
@@ -76,7 +76,7 @@ public class ProdottoFisicoDS implements ProdottoFisico{
 			preparedStmt.setInt(3, bean.getPrezzo());
 			preparedStmt.setInt(4, bean.getQuantità());
 			preparedStmt.setBoolean(5, bean.isDisponibile());
-			
+			preparedStmt.setInt(6, bean.getId());
 			preparedStmt.executeUpdate();
 			
 			connection.setAutoCommit(false);
