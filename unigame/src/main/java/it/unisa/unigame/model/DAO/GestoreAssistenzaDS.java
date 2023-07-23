@@ -69,7 +69,7 @@ private static final String TABLE_NAME = "gestore_assistenza";
 		PreparedStatement preparedStmt = null;
 		
 		String updateSQL = "UPDATE " + GestoreAssistenzaDS.TABLE_NAME
-				+ "SET NOME = ?, COGNOME = ?, USERNAME = ?, EMAIL = ?, PASS_WORD = ?, RETRIBUZIONE_ANNUALE = ?"
+				+ " SET NOME = ?, COGNOME = ?, USERNAME = ?, EMAIL = ?, PASS_WORD = ?, RETRIBUZIONE_ANNUALE = ?"
 				+ " WHERE CODICE_FISCALE = ?";
 		
 		try {
@@ -135,7 +135,7 @@ private static final String TABLE_NAME = "gestore_assistenza";
 	}
 
 	@Override
-	public GestoreAssistenzaBean doRetrieveByKey(String username) throws SQLException {
+	public GestoreAssistenzaBean doRetrieveByKey(String email) throws SQLException {
 		
 		Connection connection = null;
 		PreparedStatement preparedStmt = null;
@@ -148,7 +148,7 @@ private static final String TABLE_NAME = "gestore_assistenza";
 		try {
 			connection = ds.getConnection();
 			preparedStmt = connection.prepareStatement(selectSQL);
-			preparedStmt.setString(1, username);
+			preparedStmt.setString(1, email);
 			
 			ResultSet rs = preparedStmt.executeQuery();
 			

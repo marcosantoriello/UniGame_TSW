@@ -12,7 +12,7 @@ public interface GestoreAssistenza {
 	
 	public boolean doDelete(String username) throws SQLException;
 	
-	public GestoreAssistenzaBean doRetrieveByKey(String username) throws SQLException;
+	public GestoreAssistenzaBean doRetrieveByKey(String email) throws SQLException;
 	
 	public GestoreAssistenzaBean doRetrieveByKeyEmail(String email) throws SQLException;
 	

@@ -106,7 +106,7 @@
 		  </nav> 
 			
 			<%
-				} else if (ruoloNav.equals("ass")) {
+				} else if (ruoloNav.equals("gestAssist")) {
 			%>
 			<nav class="navbar navbar-expand-lg bg-costum" id="headerNav" >
 		  	<div class="container-fluid">
@@ -136,7 +136,7 @@
           						Account
         					</a>
         					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          						<a class="dropdown-item" href="profilo.jsp">Il mio profilo</a>
+          						<a class="dropdown-item" href="Profilo.jsp">Il mio profilo</a>
           						<div class="dropdown-divider"></div>
           							<a class="dropdown-item" href="LogoutServlet">Logout</a>
         					</div>

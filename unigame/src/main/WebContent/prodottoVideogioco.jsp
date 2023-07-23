@@ -19,8 +19,6 @@
 	RecensioneDS recDS = new RecensioneDS(ds);
 	Collection<RecensioneBean> colRec = recDS.doRetrieveAll(id, null);
 	
-	//aggiungi recensioni
-	
 	Cliente clDS = new ClienteDS(ds);
 	
 %>

@@ -20,6 +20,7 @@ import it.unisa.unigame.model.DAO.AmministratoreDS;
 import it.unisa.unigame.model.DAO.ClienteDS;
 import it.unisa.unigame.model.DAO.GestoreAssistenzaDS;
 import it.unisa.unigame.model.bean.AmministratoreBean;
+import it.unisa.unigame.model.bean.Carrello;
 import it.unisa.unigame.model.bean.ClienteBean;
 import it.unisa.unigame.model.bean.GestoreAssistenzaBean;
 
@@ -55,7 +56,7 @@ public class LoginServlet extends HttpServlet {
 				clienteBean = cliente.doRetrieveByKeyEmail(email);
 				System.out.println("Nome cliente: " + clienteBean.getCodice_fiscale());
 				request.getSession().setAttribute("utente", clienteBean);	
-				//request.getSession().setAttribute("carrello", new Carrello(ds));
+				request.getSession().setAttribute("carrello", new Carrello(ds));
 			}
 			else if (ruolo.equals("gestAssist")) {
 				GestoreAssistenza gestAss = new GestoreAssistenzaDS(ds);
@@ -103,7 +104,6 @@ public class LoginServlet extends HttpServlet {
 			preparedStmt1 = connection.prepareStatement(query1);
 			preparedStmt1.setString(1, email);
 			//ESECUZIONE QUERY
-
 			ResultSet rs1 = preparedStmt1.executeQuery();
 			String password1 = null;
 			//ESTRAGGO PASSWORD E CONTROLLO
@@ -111,7 +111,6 @@ public class LoginServlet extends HttpServlet {
 				password1 = rs1.getString("pass_word");
 				if (password1.equals(password)) 
 					ruolo1 = rs1.getString("ruolo");
-					
 			}
 			
 			//CHECK ADMIN
@@ -127,16 +126,20 @@ public class LoginServlet extends HttpServlet {
 			//CHECK GESTORE
 			preparedStmt3 = connection.prepareStatement(query3);
 			preparedStmt3.setString(1, email);
-			ResultSet rs3 = preparedStmt1.executeQuery();
+			ResultSet rs3 = preparedStmt3.executeQuery();
 			String password3 = null;
 			if (rs3.next()) {
 				password3 = rs3.getString("pass_word");
+				System.out.println("Ruolo: " + rs3.getString("ruolo"));
 				if (password3.equals(password))
 					ruolo3 = rs3.getString("ruolo");
-			}
+			} 
+			
 			
 			connection.setAutoCommit(false);
 			connection.commit();
+		} catch(SQLException e) {
+			e.printStackTrace();
 		}
 		finally  {
 			try {

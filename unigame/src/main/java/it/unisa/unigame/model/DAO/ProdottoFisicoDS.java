@@ -29,7 +29,7 @@ public class ProdottoFisicoDS implements ProdottoFisico{
 		Connection connection=null;
 		PreparedStatement preparedStmt=null;
 		
-		String insertSQL = "INSERT INTO "+ ProdottoFisicoDS.TABLE_NAME + "(ID,NOME, PREZZO, QUANTITA, DISPONIBILE)"+ "VALUES (?, ?, ?, ?, ?)";
+		String insertSQL = "INSERT INTO "+ ProdottoFisicoDS.TABLE_NAME + " (ID,NOME, PREZZO, QUANTITA, DISPONIBILE) VALUES (?, ?, ?, ?, ?)";
 		
 		try {
 			connection = ds.getConnection();
@@ -65,7 +65,7 @@ public class ProdottoFisicoDS implements ProdottoFisico{
 		PreparedStatement preparedStmt = null;
 		
 		String updateSQl = "UPDATE " + ProdottoFisicoDS.TABLE_NAME
-				+ "SET ID = ?, NOME = ?, PREZZO = ?, QUANTITA = ?, DISPONIBILE= ?, WHERE ID = ?";
+				+ " SET ID = ?, NOME = ?, PREZZO = ?, QUANTITA = ?, DISPONIBILE= ?, WHERE ID = ?";
 		
 		try {
 			connection = ds.getConnection();
@@ -104,7 +104,7 @@ public class ProdottoFisicoDS implements ProdottoFisico{
 		int result = 0;
 		
 		String deleteSQL = "DELETE FROM " + ProdottoFisicoDS.TABLE_NAME
-				+ "WHERE ID = ?";
+				+ " WHERE ID = ?";
 		
 		try {
 			connection = ds.getConnection();
@@ -135,7 +135,7 @@ public class ProdottoFisicoDS implements ProdottoFisico{
 		ProdottoFisicoBean bean = new ProdottoFisicoBean();
 		
 		String selectSQL = "SELECT * FROM " + ProdottoFisicoDS.TABLE_NAME
-				+ "WHERE ID =  ?";
+				+ " WHERE ID =  ?";
 		
 		try {
 			connection = ds.getConnection();
