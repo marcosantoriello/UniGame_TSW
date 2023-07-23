@@ -21,14 +21,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="style/style.css" rel="stylesheet">
+<script src="script/jquery-3.6.0.min.js"></script>
+
 <title>Gestione Prodotti</title>
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="style/style.css">
-		<script src="script/jquery-3.6.0.min.js"></script>
+
 </head>
 <body>
 	<script src="script/jquery-3.6.0.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+	<%@ include file="/fragments/headerNuovo.jsp" %>
 	
 	<script>
 	function remOggetto(id){
@@ -42,8 +46,7 @@
 		xhttp.send();
 	}
 	</script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-	<%@ include file="/fragments/headerNuovo.jsp" %>
+
 	<div id="pagina">
 	<div class="container" id="cont">
 		<div class="card-header my-3">
@@ -51,10 +54,10 @@
 			<br/>
 		</div>
 		<div style="text-align:center">
-			<a href="/gamePlatformSite/addInCat.jsp" class="btn border-dark">
+			<a href="/unigame/addInCat.jsp" class="btn border-dark">
 				<img src="images\icon\add.svg" alt="add-to-cart" class="icona" style="font-size:0; width:40px; height:40px;" style="font-size:0; width:40px; height:40px;"> Aggiungi Prodotto	
 			</a>
-			<a href="/gamePlatformSite/modInCat.jsp" class="btn border-dark"> 	
+			<a href="/unigame/modInCat.jsp" class="btn border-dark"> 	
 				<img src="images\icon\pencil.svg" alt="mod-abb" class="icona" style="font-size:0; width:40px; height:40px;" style="font-size:0; width:40px; height:40px;">	Modifica Prodotto
 			</a>
 		</div>
