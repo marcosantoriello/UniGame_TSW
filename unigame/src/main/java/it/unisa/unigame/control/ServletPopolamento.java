@@ -118,10 +118,36 @@ public class ServletPopolamento extends HttpServlet {
 		
 		//Tickets
 		TicketBean tick1 = new TicketBean(01, LocalDateTime.of(2023, 2, 26,19,23), "RSSMRA03A18D615L", "PRTPQL80A01H501C", Categoria.ordine, "Salve, vorrei sapere a che punto è l’ordine che ho effettuato in data 20/02/23", true);
-		TicketBean tick2 = new TicketBean(01, LocalDateTime.of(2023, 2, 26, 22,33), "RSSMRA03A18D615L", "PRTPQL80A01H501C", Categoria.ordine, "Salve, posso sapere l’ordine con id 2376 a che punto è?", false);
-		TicketBean tick3 = new TicketBean(01, LocalDateTime.of(2023, 2, 26, 11, 12), "RSSMRA03A18D615L", "PRTPQL80A01H501C", Categoria.ordine, "Buon pomeriggio, mi scuso per il disturbo ma la chiave di attivazione che ho acquistato mi dà un errore", true);
+		TicketBean tick2 = new TicketBean(02, LocalDateTime.of(2023, 12, 26, 22,33), "RSSMRA03A18D615L", "PRTPQL80A01H501C", Categoria.ordine, "Salve, posso sapere l’ordine con id 2376 a che punto è?", false);
+		TicketBean tick3 = new TicketBean(03, LocalDateTime.of(2022, 4, 4, 11, 12), "RSSMRA03A18D615L", "PRTPQL80A01H501C", Categoria.ordine, "Buon pomeriggio, mi scuso per il disturbo ma la chiave di attivazione che ho acquistato mi dà un errore", true);
 		
+		//Ordine
+		OrdineBean order1= new OrdineBean(1265,LocalDateTime.of(2023, 02, 23, 22, 45),5635672899376L, 15.98f,"RSSMRA03A18D615L", false);
+		OrdineBean order2= new OrdineBean(2376,LocalDateTime.of(2022, 11, 3, 9, 33),2982435672819L, 90.78f,"VRDPPL80D13F138U", false);
+		OrdineBean order3= new OrdineBean(2341,LocalDateTime.of(2022, 10, 8, 16, 17),1256370982715L, 39.79f,"CRSBCH80A01H501J", false);
+		OrdineBean order4= new OrdineBean(2468,LocalDateTime.of(2023, 01, 13, 23, 55),234516728901L, 129.88f,"TRRRRT80A01H703E", false);
+		OrdineBean order5= new OrdineBean(4211,LocalDateTime.of(2023, 11, 3, 19, 23),2982435672819L, 90.78f,"RSSMRA03A18D615L", false);
+		OrdineBean order6= new OrdineBean(8977,LocalDateTime.of(2023, 04, 2, 12, 56),1115627893098L, 90.78f,"RSSMRA03A18D615L", false);
+		OrdineBean order7= new OrdineBean(4567,LocalDateTime.of(2023, 03, 23, 9, 43),3114255431277L, 90.78f,"CRSBCH80A01H501J", false);
 		
+		//ComprendeOP
+		ComprendeOPBean cOP0= new ComprendeOPBean(23,1265);
+		ComprendeOPBean cOP1= new ComprendeOPBean(177,2468);
+		ComprendeOPBean cOP2= new ComprendeOPBean(89,2468);
+		ComprendeOPBean cOP3= new ComprendeOPBean(234,2341);
+		ComprendeOPBean cOP4= new ComprendeOPBean(33,4211);
+		ComprendeOPBean cOP5= new ComprendeOPBean(23,8977);
+		ComprendeOPBean cOP6= new ComprendeOPBean(54,8977);
+		ComprendeOPBean cOP7= new ComprendeOPBean(100,8977);
+		
+		//ComprendeOV
+		ComprendeOVBean cOV0= new ComprendeOVBean(894354,4567);
+		ComprendeOVBean cOV1= new ComprendeOVBean(877675,4567);
+		ComprendeOVBean cOV2= new ComprendeOVBean(877675,2376);
+		ComprendeOVBean cOV3= new ComprendeOVBean(139909,2376);
+		ComprendeOVBean cOV4= new ComprendeOVBean(883936,2376);
+		ComprendeOVBean cOV5= new ComprendeOVBean(962365,2341);
+		ComprendeOVBean cOV6= new ComprendeOVBean(446002,8977);
 		
 		try {
 			ammDs.doSave(amm1);
@@ -177,6 +203,32 @@ public class ServletPopolamento extends HttpServlet {
 			vidDs.doSave(vid18);
 			vidDs.doSave(vid19);
 			vidDs.doSave(vid20);
+			
+			orDS.doSave(order1);
+			orDS.doSave(order2);
+			orDS.doSave(order3);
+			orDS.doSave(order4);
+			orDS.doSave(order5);
+			orDS.doSave(order6);
+			orDS.doSave(order7);
+			
+			opDS.doSave(cOP0);
+			opDS.doSave(cOP1);
+			opDS.doSave(cOP2);
+			opDS.doSave(cOP3);
+			opDS.doSave(cOP4);
+			opDS.doSave(cOP5);
+			opDS.doSave(cOP6);
+			opDS.doSave(cOP7);
+			
+			ovDS.doSave(cOV0);
+			ovDS.doSave(cOV1);
+			ovDS.doSave(cOV2);
+			ovDS.doSave(cOV3);
+			ovDS.doSave(cOV4);
+			ovDS.doSave(cOV5);
+			ovDS.doSave(cOV6);
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
