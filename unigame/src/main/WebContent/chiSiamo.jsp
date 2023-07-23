@@ -10,11 +10,9 @@
 		<link rel="stylesheet" type="text/css" href="style/aboutUs.css">
 	</head>
 	<style>
-		div.back{
+		div#back{
 			min-height: 500px;
 			background-image: url("images/who.jpg");
-	  		background-repeat: no-repeat;
-	  		background-size: cover;
  		}
 	</style>
 	
@@ -23,7 +21,8 @@
 
 	<body>
 		<%@include file="/fragments/headerNuovo.jsp" %>
-		<div class="back">
+		
+		<div id="back" >
 			<h1 class="title">Chi siamo?</h1>
 		</div>
 		
@@ -41,17 +40,11 @@
 		      <div class="card" style="width:20rem;">
 	  			<img src="images/DI.png" class="card-img-top">
 	  			<div class="card-body">
-	    			<p class="card-text">Siamo un team di tre studenti che studiano informatica presso l'Universita' degli stud di Salerno, e questo sito fa parte di un progetto accademico.</p>
+	    			<p class="card-text">Siamo un team di tre studenti che studiano informatica presso l'Università degli stud di Salerno, e questo sito fa parte di un progetto accademico.</p>
 	  			</div>
 			</div>
 		   </div>
-		    <div class="col">
-		      Column
-		    </div>
-		  </div>
-
-			
-			
+		    
 		</div>
 			
 		<%@include file="/fragments/footer.jsp" %>

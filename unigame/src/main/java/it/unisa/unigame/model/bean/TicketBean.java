@@ -1,6 +1,7 @@
 package it.unisa.unigame.model.bean;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -9,7 +10,7 @@ public class TicketBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private int num_ticket;
-	private LocalDate data_e_ora;
+	private LocalDateTime data_e_ora;
 	private String cliente;
 	private String gestore;
 	public enum Categoria{account, pagamento, ordine, altro};
@@ -27,7 +28,7 @@ public class TicketBean implements Serializable{
 		this.risolto=false;
 	}
 	
-	public TicketBean(int num, LocalDate data, String cliente, String gest, Categoria cat, String messaggio, boolean ris) {
+	public TicketBean(int num, LocalDateTime data, String cliente, String gest, Categoria cat, String messaggio, boolean ris) {
 		this.num_ticket=num;
 		this.data_e_ora=data;
 		this.cliente=cliente;
@@ -45,7 +46,7 @@ public class TicketBean implements Serializable{
 		this.num_ticket = num_ticket;
 	}
 
-	public LocalDate getData_e_ora() {
+	public LocalDateTime getData_e_ora() {
 		return this.data_e_ora;
 	}
 

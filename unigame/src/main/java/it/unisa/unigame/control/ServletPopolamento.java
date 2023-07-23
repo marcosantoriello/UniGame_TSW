@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -116,9 +117,9 @@ public class ServletPopolamento extends HttpServlet {
 		ProdottoFisicoBean prod7 = new ProdottoFisicoBean(89, "Zaino Pokemon", 22,0 , false);
 		
 		//Tickets
-		TicketBean tick1 = new TicketBean(01, LocalDate.of(2023, 2, 26), "RSSMRA03A18D615L", "PRTPQL80A01H501C", Categoria.ordine, "Salve, vorrei sapere a che punto è l’ordine che ho effettuato in data 20/02/23", true);
-		TicketBean tick1 = new TicketBean(01, LocalDate.of(2023, 2, 26), "RSSMRA03A18D615L", "PRTPQL80A01H501C", Categoria.ordine, "Salve, posso sapere l’ordine con id 2376 a che punto è?", false);
-		TicketBean tick1 = new TicketBean(01, LocalDate.of(2023, 2, 26), "RSSMRA03A18D615L", "PRTPQL80A01H501C", Categoria.ordine, "Buon pomeriggio, mi scuso per il disturbo ma la chiave di attivazione che ho acquistato mi dà un errore", true);
+		TicketBean tick1 = new TicketBean(01, LocalDateTime.of(2023, 2, 26,19,23), "RSSMRA03A18D615L", "PRTPQL80A01H501C", Categoria.ordine, "Salve, vorrei sapere a che punto è l’ordine che ho effettuato in data 20/02/23", true);
+		TicketBean tick2 = new TicketBean(01, LocalDateTime.of(2023, 2, 26, 22,33), "RSSMRA03A18D615L", "PRTPQL80A01H501C", Categoria.ordine, "Salve, posso sapere l’ordine con id 2376 a che punto è?", false);
+		TicketBean tick3 = new TicketBean(01, LocalDateTime.of(2023, 2, 26, 11, 12), "RSSMRA03A18D615L", "PRTPQL80A01H501C", Categoria.ordine, "Buon pomeriggio, mi scuso per il disturbo ma la chiave di attivazione che ho acquistato mi dà un errore", true);
 		
 		
 		
