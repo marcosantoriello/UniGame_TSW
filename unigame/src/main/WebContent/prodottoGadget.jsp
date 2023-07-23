@@ -54,7 +54,7 @@
                    <div>
                        <ul style="list-style-type:none">
                            <li class="text-center">Disponibile: <%=disponibile %></li><br/>
-                           <%if (prodBean.isDisponibile()) { %>
+                           <%if (!disponibile.equals("No")) { %>
                            	<!-- DISPONIBILE -->
                            		<li>Rimanenti: <%=prodBean.getQuantità() %>
                            		<% if(ruolo==null || ruolo.equals("cliente")){
@@ -71,7 +71,7 @@
                
 			   					%>
                            <% } else {%>
-                           	<li>Il prodotto non e' al momento disponibile. Scopri altri prodotti oppure attendi qualche giorno!</li>
+                           	<li>Il prodotto non e' al momento disponibile.</br> Scopri altri prodotti oppure attendi qualche giorno!</li>
                            	<% } %>
                        </ul>
                    </div>

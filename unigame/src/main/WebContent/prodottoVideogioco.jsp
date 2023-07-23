@@ -15,6 +15,12 @@
 	DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
 	Videogioco vidDS = new VideogiocoDS(ds);
 	VideogiocoBean vidBean = vidDS.doRetrieveByKey(id);
+	String disponibile;
+	if (!vidBean.isDisponibile() || vidBean.getQuantità() == 0) {
+		disponibile = "No";
+	} else  {
+		disponibile = "Sì";
+	}
 	
 	RecensioneDS recDS = new RecensioneDS(ds);
 	Collection<RecensioneBean> colRec = recDS.doRetrieveAll(id, null);
@@ -50,27 +56,30 @@
 				<div class="mt-5"> <span class="fw-bold">Specifiche:</span>
                    <div>
                        <ul style="list-style-type:none">
-                           <li class="text-center">Prodotto da: <%= vidBean.getProduttore() %></li>
-                           <li>Sviluppato nel:<%= vidBean.getAnno_produzione() %> </li>
-                           <li>Pegi: <%= vidBean.getPegi() %></li>
+                           <li class="text-center">Prodotto da: <%= vidBean.getProduttore() %></li><br/>
+                           <li>Sviluppato nel:<%= vidBean.getAnno_produzione() %> </li><br/>
+                           <li>Pegi: <%= vidBean.getPegi() %></li><br/>
                            
                        </ul>
                    </div>
                </div>
-               <% if(ruolo==null || ruolo.equals("cliente")){
-            	   
-               
-               %>
-               <br/>
-               <a href="AggiungiCarrello?id=<%=vidBean.getId()%>" class="btn border-dark"> 
-               		 Aggiungi al carrello
-			   </a>
-			   <%
-			   
-              	 }
-               
-			   %>
-			   
+               <%if (!disponibile.equals("No")) {%>
+	               <% if(ruolo==null || ruolo.equals("cliente")){
+	            	   
+	               
+	               %>
+	               <br/>
+	               <a href="AggiungiCarrello?id=<%=vidBean.getId()%>" class="btn border-dark"> 
+	               		 Aggiungi al carrello
+				   </a>
+				   <%
+				   
+	              	 }
+	               
+				   %>
+			  	<% } else {%>
+                           	<li>Il prodotto non e' al momento disponibile.</br> Scopri altri prodotti oppure attendi qualche giorno!</li>
+				<% } %>
 			</div>
 		</div><!-- end row -->
 		<br/> 
