@@ -6,6 +6,12 @@
    <%
 	
 	DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
+   	String ruolo = (String) session.getAttribute("ruolo");
+   	if (ruolo == null || ruolo == "cliente" || ruolo == "admin") {
+   		
+   	} else if (ruolo == "gestAssist") {
+   		response.sendRedirect(request.getContextPath() + "/errorPage.jsp");
+   	}
 	Videogioco vidDS = new VideogiocoDS(ds);
 	Collection<VideogiocoBean> colVid = vidDS.doRetrieveAll("nome");
 	
@@ -42,7 +48,8 @@
 				
 					<form>
 						<input type="hidden" name="VideogiocoID" value="<%=vid.getId()%>">
-						<a href="prodotto.jsp?id=<%=vid.getId()%>"><img class="card-img-top" src="ImageServlet?immagine=video_<%=vid.getId()%>.jpg" alt="Card image"></a>
+						<%System.out.println("Videogioco ID: " + vid.getId()); %>
+						<a href="prodottoVideogioco.jsp?id=<%=vid.getId()%>"> <img class="image-piccola card-img-top image-responsive" src="ImageServlet?immagine=video_<%=vid.getId()%>.jpg" alt="Card image"> </a>
 					</form>
 	
 					
