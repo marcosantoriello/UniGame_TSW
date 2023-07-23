@@ -8,9 +8,9 @@
 	</head>
 	
 	<%
-	//prendo dalla sessione il ruolo per far visualizzare la rispettiva navbar
+		//prendo dalla sessione il ruolo per far visualizzare la rispettiva navbar
 		String ruoloNav = (String) session.getAttribute("ruolo");
-	
+		
 	%>
 	
 	
