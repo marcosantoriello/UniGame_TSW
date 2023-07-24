@@ -174,7 +174,7 @@
         				</div>
         				</li>
 		        		<li class="nav-item">
-		         		 	<a class="nav-link" href="chiSiamo.jsp">Aggiorna catalogo</a>
+		         		 	<a class="nav-link" href="chiSiamo.jsp">Chi Siamo</a>
 		        		</li>
 		        		<li class="nav-item">
 		         		 	<a class="nav-link" href="chiSiamo.jsp">Staff</a> <!-- da cui si aggiungono/rimuovono assistenti e admin -->
