@@ -57,8 +57,8 @@
 			<a href="/unigame/addInCat.jsp" class="btn border-dark">
 				<img src="images\icon\add.svg" alt="add-to-cart" class="icona" style="font-size:0; width:40px; height:40px;" style="font-size:0; width:40px; height:40px;"> Aggiungi Videogioco	
 			</a>
-			<a href="/unigame/modInCat.jsp" class="btn border-dark"> 	
-				<img src="images\icon\pencil.svg" alt="mod-abb" class="icona" style="font-size:0; width:40px; height:40px;" style="font-size:0; width:40px; height:40px;">	Modifica Videogioco
+			<a href="/unigame/ModInCat.jsp" class="btn border-dark"> 	
+				<img src="images\icon\pencil.svg" alt="mod-prod" class="icona" style="font-size:0; width:40px; height:40px;" style="font-size:0; width:40px; height:40px;">	Modifica Videogioco
 			</a>
 		</div>
 		<div class="row">

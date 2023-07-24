@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +14,6 @@ import javax.sql.DataSource;
 
 import it.unisa.unigame.model.DAO.ProdottoFisicoDS;
 import it.unisa.unigame.model.DAO.VideogiocoDS;
-import it.unisa.unigame.model.bean.AmministratoreBean;
 import it.unisa.unigame.model.bean.ProdottoFisicoBean;
 import it.unisa.unigame.model.bean.VideogiocoBean;
 import it.unisa.unigame.model.bean.VideogiocoBean.Pegi;

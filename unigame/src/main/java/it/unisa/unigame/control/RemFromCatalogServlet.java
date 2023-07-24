@@ -12,7 +12,6 @@ import javax.sql.DataSource;
 
 import it.unisa.unigame.model.DAO.ProdottoFisicoDS;
 import it.unisa.unigame.model.DAO.VideogiocoDS;
-import it.unisa.unigame.model.bean.AmministratoreBean;
 import it.unisa.unigame.model.bean.ProdottoFisicoBean;
 import it.unisa.unigame.model.bean.VideogiocoBean;
 
@@ -37,7 +36,6 @@ public class RemFromCatalogServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
-		AmministratoreBean ammBean = (AmministratoreBean) request.getSession().getAttribute("utente");
 		
 		
 		String id_p = (String) request.getParameter("id");
