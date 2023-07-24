@@ -89,9 +89,11 @@ public class Carrello {
 	}
 	
 	public void removeVideogame(int id) {
+		System.out.println("Sono qui");
 		VideogiocoBean vidBean = null;
 		try {
 			vidBean = vidDS.doRetrieveByKey(id);
+			System.out.println(vidBean.getId());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
