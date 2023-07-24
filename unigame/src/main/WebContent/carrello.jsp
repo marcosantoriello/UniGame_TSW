@@ -32,13 +32,14 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 	<script>
 	//funzione per l'evento di andare al checkout
-		function checkout(importo){
-			if(importo == "0"){
-				alert("Per procedere all'acquisto devi contenere almeno un oggetto nel carrello.");
-			} else {
-				window.location.href="CheckoutServlet";
-			}
-		}
+    // Ottieni il riferimento al bottone tramite l'ID
+    var button = document.getElementById("check");
+
+    // Aggiungi un gestore di eventi "click" al bottone
+    button.addEventListener("click", function() {
+        // Effettua il reindirizzamento alla nuova pagina
+        window.location.href = "unigame/checkout.jsp";
+    });
 	
 	//funzione per chiamare la servlet della rimozione del carrello quando si clicca sul pulsante
 		function rimuoviElemento(id){
@@ -81,7 +82,7 @@
 			      <div class="col-md-8">
 			        <div class="card mb-4">
 			          <div class="card-header py-3">
-			            <h5 class="mb-0">Carrello -  elementi</h5>
+			            <h5 class="mb-0">Carrello -<%=numTotal %> elementi</h5>
 			          </div>
 			          <div class="card-body">
 			          
@@ -91,6 +92,9 @@
 							vidRel=vidRel+ vid.getPrezzo();
 					  %>
 			            <!-- Single  videogame -->
+			            <%String incr =request.getParameter("incrementa");
+			                boolean i=Boolean.parseBoolean(incr);
+			                if(i==false){ %>
 			            <div class="row">
 			              <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
 			                <!-- Image -->
@@ -106,6 +110,8 @@
 			
 			              <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
 			                <!-- Data -->
+			                
+			                
 			                <p><strong><%= vid.getNome() %></strong></p>
 			                <button type="button" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip"title="Remove item"
 			                onclick='rimuoviElemento("<%= vid.getId() %>")'> Rimuovi elemento
@@ -120,10 +126,10 @@
 			                  
 			
 			                  <div class="form-outline">
-			                    <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control" />
+			                    <input id="form1" min="0" name="quantity" type="number" class="form-control" />
 			                    <script>
-			                    	const qta=document.getElementById("form1").value;
-			                    	
+
+			                    	var qta=parseInt(document.getElementById("form1").value);
 			                    	//funzione per il controllo della qtà selezionata
 			            			function quantityVid(){
 			            				
@@ -133,7 +139,7 @@
 			            					rimuoviElemento(vid.getId());
 			            			}
 			                    	
-			            			form1.addEventListener('input', quantityProd);
+			            			document.getElementById("form1").addEventListener('input', quantityProd);
 			                    </script>
 			                    <label class="form-label" for="form1">Quantit&agrave</label>
 			                  </div>
@@ -149,7 +155,71 @@
 			              </div>
 			            </div>
 			            
-			            <%} %>
+			            <%//se incrementa è a true
+			            }else{
+			            	
+			            	%>
+			            	 <div class="row">
+			              <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+			                <!-- Image -->
+			                <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+			                  <img src="ImageServlet?immagine=video_<%=vid.getId()%>.jpg"
+			                    class="w-100" alt="Blue Jeans Jacket" />
+			                  <a href="#!">
+			                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+			                  </a>
+			                </div>
+			                
+			              </div>
+			
+			              <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+			                <!-- Data -->
+			                
+			               
+			                <p><strong><%= vid.getNome() %></strong></p>
+			                <button type="button" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip"title="Remove item"
+			                onclick='rimuoviElemento("<%= vid.getId() %>")'> Rimuovi elemento
+                  				<i class="fas fa-trash"></i>
+                			</button>
+			                
+			              </div>
+			
+			              <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+			                <!-- Quantity -->
+			                <div class="d-flex mb-4" style="max-width: 300px">
+			                  
+			
+			                  <div class="form-outline">
+			                    <input id="form1" min="0" name="quantity" type="number" class="form-control" />
+			                    <script>
+			                    	const qta=document.getElementById("form1").value;
+			                    	
+			                    	//funzione per il controllo della qtà selezionata
+			            			function quantityVid(){
+			            				
+			            				if(qta > vid.getQuantità())
+			            					alert("Non puoi selezionare questa quantità.")
+			            				if(qta==0)
+			            					rimuoviElemento(vid.getId());
+			            			}
+			                    	
+			            			document.getElementById("form1").addEventListener('input', quantityProd);
+			                    </script>
+			                    <label class="form-label" for="form1">Quantit&agrave</label>
+			                  </div>
+		
+			                </div>
+			                
+			
+			                <!-- Price -->
+			                <p class="text-start text-md-center">
+			                  <strong><%=vid.getPrezzo() %></strong>
+			                </p>
+			                
+			              </div>
+			            </div>
+			            
+			            <%}} %>
 			            <!-- Single item -->
 			
 			            <hr class="my-4" />
@@ -191,22 +261,23 @@
 			                <div class="d-flex mb-4" style="max-width: 300px">
 			                  
 			                  <div class="form-outline">
-			                    <input id="form2" min="0" name="quantity" value="1" type="number" class="form-control" />
+			                    <input id="form2" min="0" name="quantity" type="number" class="form-control" />
 			                     <script>
-			                     	const qta=document.getElementById("form1").value;
+			                     	const qta=document.getElementById("form2").value;
 			                     	
 			                    	//funzione per il controllo della qtà selezionata
 			            			function quantityProd(){
-			            				var qta=document.getElementById("form1").value;
+			            				var qta=parseInt(document.getElementById("form2").value);
 			            				if(qta > prod.getQuantità())
 			            					alert("Non puoi selezionare questa quantità.")
 			            				if(qta==0)
 			            					rimuoviElemento(prod.getId());
+			            					document.getElementById("form2").value=qta+1;
 			            			}
 			                    	
 			            			form1.addEventListener('input', quantityProd);
 			                    </script>
-			                    <label class="form-label" for="form1">Quantit&agrave</label>
+			                    <label class="form-label" for="form2">Quantit&agrave</label>
 			                  </div>
 			                </div>
 			
@@ -263,9 +334,9 @@
 			              </li>
 			            </ul>
 			
-			            <a href="Checkout.jsp"><button type="button" class="btn btn-primary btn-lg btn-block"></a>
-			              Vai al checkout
-			            </button>
+			       
+
+						<a href="Checkout.jsp" class="btn btn-primary btn-lg btn-block"> Vai al checkout </a>
 			          </div>
 			        </div>
 			      </div>

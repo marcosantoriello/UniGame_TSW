@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import it.unisa.unigame.model.bean.Carrello;
+import it.unisa.unigame.model.bean.ProdottoFisicoBean;
+import it.unisa.unigame.model.bean.VideogiocoBean;
 
 
 /**
@@ -36,21 +38,31 @@ public class AggiungiCarrello extends HttpServlet {
 		
 		if(ruolo != null) {
 			Carrello carrello = (Carrello) request.getSession().getAttribute("carrello");
-			//mi faccio passare l'id e la quantità in questione dalla jsp
+			//mi faccio passare l'id in questione dalla jsp
 			String id_p = (String) request.getParameter("id");
 			int id = Integer.parseInt(id_p);
 			String tipo = (String) request.getParameter("tipo");
-			//in base alla quantità selezionata
-			System.out.println(tipo);
 			//nel caso in cui sia un videogioco
 			if(tipo.equals("videogioco")) {
-				
+				//prendo man mano videogioco bean
+				for(VideogiocoBean vid:carrello.getVideogames()) {
+					if(id==vid.getId()) {
+						request.setAttribute("incrementa", true);
+						
+					}
+						
+				}
 				//lo aggiungo al carrello
 				carrello.addVideogame(id);
 				response.sendRedirect(request.getContextPath() + "/Catalogo.jsp");
 			}
 			else {
-					
+				for(ProdottoFisicoBean prod:carrello.getProdottiFisici()) {
+					if(id==prod.getId()) {
+						request.setAttribute("incrementa", true);
+					}
+						
+				}
 				//lo aggiungo al carrello
 				carrello.addProduct(id);
 				response.sendRedirect(request.getContextPath() + "/CatalogoGadget.jsp");

@@ -1,5 +1,5 @@
 <%@ page language="java" import="it.unisa.unigame.model.bean.ProdottoFisicoBean ,java.util.Collection,it.unisa.unigame.model.bean.VideogiocoBean, it.unisa.unigame.model.bean.Carrello,it.unisa.unigame.model.interfaceDS.Telefono, it.unisa.unigame.model.DAO.TelefonoDS,it.unisa.unigame.model.bean.ClienteBean,javax.sql.DataSource "  contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"> %>
+    pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <%
 	ClienteBean cliente = (ClienteBean) session.getAttribute("utente");
@@ -32,7 +32,7 @@
 	
 			<br/><br/>
 			
-			<form action="CheckOutServlet" method="post">
+			<form action="CheckoutServlet" method="post">
 			<div class="row">
 				<div class="col-md-4 order-md-2 mb-4">
 					<h4 class="d-flex justify-content-between align-items-center mb-3">
