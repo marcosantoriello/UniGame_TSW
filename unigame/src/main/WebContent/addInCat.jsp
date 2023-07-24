@@ -95,16 +95,16 @@ $(document).ready(function () {
 				$("#submit").css("display", "inline");
 			}else if(selectedSubject == "prodotto"){
 				$("#pagina").html("<div class='col-md-6 mb-3'>"
-									+ "<label for='nome-abb'>Nome: </label>"
-									+ "<input type='text' class='form-control' id='nome-abb' name='nome-prod' required>"
+									+ "<label for='nome-prod'>Nome: </label>"
+									+ "<input type='text' class='form-control' id='nome-prod' name='nome-prod' required>"
 								+ "</div>"
 								+ "<div class='col-md-6 mb-3'>"
-									+ "<label for='costo'>Costo: </label>"
-									+ "<input type='text' class='form-control' id='costo' name='costo' required>"
+									+ "<label for='costo-prod'>Costo: </label>"
+									+ "<input type='text' class='form-control' id='costo-prod' name='costo-prod' required>"
 								+ "</div>"
 								+ "<div class='col-md-6 mb-3'>"
-									+ "<label for='quantita'>Quantità: </label>"
-									+ "<input type='text' class='form-control' id='durata' name='quantita' required>"
+									+ "<label for='quantita-prod'>Quantità: </label>"
+									+ "<input type='text' class='form-control' id='quantita-prod' name='quantita-prod' required>"
 								+ "</div>"
 								+ "<div class='row'>"
 									+ "<div class='col-md-6 mb-3'>"
@@ -112,6 +112,10 @@ $(document).ready(function () {
 										+ "<input type='file' class='form-control' id='inputImage' name='inputImage' required>"
 									+ "</div>"
 								+ "</div>"
+								+ "<div class='col-md-6 mb-3'>"
+									+ "<label for='cod-prod'>Codice: </label>"
+									+ "<input type='text' class='form-control' id='cod-prod' name='cod-prod' required>"
+							+ "</div>"
 								+ "<br/>");
 				$("#submit").css("display", "inline");
 				
@@ -126,20 +130,7 @@ $(document).ready(function () {
 });
 
 
-$(document).ready(function () {
-	
-		 $('#submit').click(function() {
-			if($("#tipo").val() == "prodotto"){
-		      checked = $("input[type=checkbox]:checked").length;
 
-		      if(!checked) {
-		        alert("You must check at least one checkbox.");
-		        return false;
-		      }
-
-		  }
-	});
-});
 
 </script>
 </head>
