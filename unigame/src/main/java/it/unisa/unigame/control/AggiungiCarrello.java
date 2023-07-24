@@ -1,14 +1,19 @@
 package it.unisa.unigame.control;
 
 import java.io.IOException;
-
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 
+import java.util.*;
+
+import it.unisa.unigame.model.DAO.ProdottoFisicoDS;
+import it.unisa.unigame.model.DAO.VideogiocoDS;
 import it.unisa.unigame.model.bean.Carrello;
 import it.unisa.unigame.model.bean.ProdottoFisicoBean;
 import it.unisa.unigame.model.bean.VideogiocoBean;
@@ -31,51 +36,57 @@ public class AggiungiCarrello extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String ruolo = (String) request.getSession().getAttribute("ruolo");
-		System.out.println("ruolo=" +ruolo);
-		
+		DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
 		if(ruolo != null) {
 			Carrello carrello = (Carrello) request.getSession().getAttribute("carrello");
-			//mi faccio passare l'id in questione dalla jsp
-			String id_p = (String) request.getParameter("id");
-			int id = Integer.parseInt(id_p);
-			String tipo = (String) request.getParameter("tipo");
-			//nel caso in cui sia un videogioco
-			if(tipo.equals("videogioco")) {
-				//prendo man mano videogioco bean
-				for(VideogiocoBean vid:carrello.getVideogames()) {
-					if(id==vid.getId()) {
-						request.setAttribute("incrementa", true);
-						
-					}
-						
+			int id = Integer.parseInt(request.getParameter("id"));
+			String tipo = request.getParameter("tipo");
+			if(tipo.equals("prodotto")) {
+				ProdottoFisicoDS prodDS = new ProdottoFisicoDS(ds);
+				ProdottoFisicoBean prodBean = null;
+				try {
+					prodBean = prodDS.doRetrieveByKey(id);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
-				//lo aggiungo al carrello
-				carrello.addVideogame(id);
-				response.sendRedirect(request.getContextPath() + "/Catalogo.jsp");
-			}
-			else {
-				for(ProdottoFisicoBean prod:carrello.getProdottiFisici()) {
-					if(id==prod.getId()) {
-						request.setAttribute("incrementa", true);
-					}
-						
+				Collection<ProdottoFisicoBean> colAbb = carrello.getProdottiFisici();
+				if(!colAbb.contains(prodBean)) {
+					carrello.addProduct(id);
+				}else {
+					response.sendRedirect(request.getContextPath() + "/errorPege.jsp");
+					return;
 				}
-				//lo aggiungo al carrello
-				carrello.addProduct(id);
-				response.sendRedirect(request.getContextPath() + "/CatalogoGadget.jsp");
+				
+			}else {
+				VideogiocoDS vidDS = new VideogiocoDS(ds);
+				VideogiocoBean vidBean = null;
+				try {
+					vidBean = vidDS.doRetrieveByKey(id);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Collection<VideogiocoBean> colVid = carrello.getVideogames();
+				if(!colVid.contains(vidBean)) {
+					carrello.addVideogame(id);
+				}else {
+					response.sendRedirect(request.getContextPath() + "/errorPege.jsp");
+					return;
+				}
+				
 			}
 			
-				
-		}
-		//nel caso in cui non sia loggato non può accedere al carrello
-		else {
+			response.sendRedirect(request.getContextPath() + "/carrello.jsp");
+		}else {
 			response.sendRedirect(request.getContextPath() + "/loginPage.jsp");
-			return;
 		}
+		
 	}
+		
+		
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
