@@ -1,4 +1,4 @@
-<%@ page language="java" import="it.unisa.unigame.model.bean.ProdottoFisicoBean ,java.util.Collection,it.unisa.unigame.model.bean.VideogiocoBean, it.unisa.unigame.model.bean.Carrello,it.unisa.unigame.model.interfaceDS.Telefono, it.unisa.unigame.model.DAO.TelefonoDS,it.unisa.unigame.model.bean.ClienteBean,javax.sql.DataSource "  contentType="text/html; charset=UTF-8"
+<%@ page language="java" import="it.unisa.unigame.model.bean.* ,java.util.Collection,it.unisa.unigame.model.interfaceDS.*, it.unisa.unigame.model.DAO.*,javax.sql.DataSource "  contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <%

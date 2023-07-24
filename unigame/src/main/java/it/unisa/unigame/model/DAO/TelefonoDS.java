@@ -26,7 +26,7 @@ private static final String TABLE_NAME = "num_telefono";
 		Connection connection = null;
 		PreparedStatement preparedStmt = null;
 		
-		String insertSQL = "INSERT INTO " + TABLE_NAME + "(NUMERO, CLIENTE) "
+		String insertSQL = "INSERT INTO " + TABLE_NAME + " (NUMERO, CLIENTE) "
 				+ " VALUES(?, ?)";
 		
 		try {

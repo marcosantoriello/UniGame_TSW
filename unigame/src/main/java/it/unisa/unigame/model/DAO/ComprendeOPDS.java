@@ -28,7 +28,7 @@ public class ComprendeOPDS implements ComprendeOP{
 		Connection connection=null;
 		PreparedStatement preparedStmt=null;
 		
-		String insertSQL = "INSERT INTO "+ ComprendeOPDS.TABLE_NAME + "(PRODOTTO, ORDINE)"+ "VALUES (?, ?)";
+		String insertSQL = "INSERT INTO "+ ComprendeOPDS.TABLE_NAME + " (PRODOTTO, ORDINE)"+ " VALUES (?, ?)";
 		
 		try {
 			connection = ds.getConnection();
@@ -61,7 +61,7 @@ public class ComprendeOPDS implements ComprendeOP{
 		PreparedStatement preparedStmt = null;
 		
 		String updateSQl = "UPDATE " + ComprendeOPDS.TABLE_NAME
-				+ "SET PRODOTTO = ?, ORDINE = ?";
+				+ " SET PRODOTTO = ?, ORDINE = ?";
 		
 		try {
 			connection = ds.getConnection();
@@ -98,7 +98,7 @@ public class ComprendeOPDS implements ComprendeOP{
 		int result = 0;
 		
 		String deleteSQL = "DELETE FROM " + ComprendeOPDS.TABLE_NAME
-				+ "WHERE PRODOTTO = ? AND ORDINE= ?";
+				+ " WHERE PRODOTTO = ? AND ORDINE= ?";
 		
 		try {
 			connection = ds.getConnection();
@@ -130,7 +130,7 @@ public class ComprendeOPDS implements ComprendeOP{
 		ComprendeOPBean bean = new ComprendeOPBean();
 		
 		String selectSQL = "SELECT * FROM " + ComprendeOPDS.TABLE_NAME
-				+ "WHERE ORDINE=?";
+				+ " WHERE ORDINE=?";
 		
 		try {
 			connection = ds.getConnection();

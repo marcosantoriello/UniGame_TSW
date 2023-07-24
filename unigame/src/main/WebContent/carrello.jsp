@@ -44,7 +44,7 @@
 		if(tot == "0"){
 			alert("Per procedere all'acquisto devi contenere almeno un oggetto nel carrello.");
 		} else {
-			window.location.href="/gamePlatformSite/checkOut.jsp";
+			window.location.href="/unigame/Checkout.jsp";
 		}
 	}
 	

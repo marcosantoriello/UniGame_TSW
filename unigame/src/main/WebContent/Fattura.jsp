@@ -16,9 +16,9 @@
 			ComprendeOP op= new ComprendeOPDS(ds);
 			ComprendeOV ov= new ComprendeOVDS(ds);
 			OrdineBean order= (OrdineBean) session.getAttribute("odine");
-			Collection<TelefonoBean> telbean= tel.doRetrieveAll(utente.getCodice_fiscale());
-			Collection<ComprendeOPBean> prodotti= (Collection<ComprendeOPBean>) op.doRetrieveAll("order.getId()");
-			Collection<ComprendeOVBean> videogiochi= (Collection<ComprendeOVBean>) ov.doRetrieveAll("order.getId()");
+			Collection<TelefonoBean> telbean= tel.doRetrieveAll(null);
+			Collection<ComprendeOPBean> prodotti= (Collection<ComprendeOPBean>) op.doRetrieveAll(null);
+			Collection<ComprendeOVBean> videogiochi= (Collection<ComprendeOVBean>) ov.doRetrieveAll(null);
 			
 			
 			
