@@ -74,22 +74,22 @@ $(document).ready(function () {
 					+ "</div>"
 					+ "<div class='row'>"
 						+ "<div class='col-md-6 mb-3'>"
-							+ "<label for='cod-vid'>Codice Originale: </label>"
+							+ "<label for='cod-vid'>Codice: </label>"
 							+ "<input type='text' class='form-control' id='cod-vid' name='cod-vid' required>"
 						+ "</div>"
 						+ "<div class='col-md-6 mb-3'>"
 							+ "<label for='annoProd'>Anno produzione: </label>"
 							+ "<input type='text' class='form-control' id='annoProd' name='annoProd' required>"
-						+ "</div>"
-						+ "<div class='col-md-6 mb-3'>"
-						+ "<label for='quantita-vid'>Quantità: </label>"
-						+ "<input type='text' class='form-control' id='quantita-vid' name='quantita-vid' required>"
-					+ "</div>"
+						+ "</div>"	
 					+ "</div>"	
 					+ "<div class='row'>"	
 						+ "<div class='col-md-6 mb-3'>"
 							+ "<label for='costo'>Costo: </label>"
 							+ "<input type='text' class='form-control' id='costo' name='costo' required>"
+						+ "</div>"
+						+ "<div class='col-md-6 mb-3'>"
+							+ "<label for='quantita-vid'>Quantità: </label>"
+							+ "<input type='text' class='form-control' id='quantita-vid' name='quantita-vid' required>"
 						+ "</div>"
 						+ "<div class='col-md-6 mb-3'>"
 							+ "<label for='pegi'>Pegi: </label>"
@@ -104,7 +104,13 @@ $(document).ready(function () {
 					+ "</div>"
 					
 				+ "</div>");
-
+			
+			//$('#nome-vid').val('');
+			//$('#cod-vid').val('1000');
+			//$('#dim-vid').val('1000');
+			//$('#annoProd').val('1000');
+			//$('#costo').val('1000');
+			//$('#pegi').val('1000');
 		}});
 		
 	});
@@ -115,24 +121,29 @@ $(document).ready(function () {
 			$("#dati").html(""
 				+ "<div class='row'>"	
 					+ "<div class='col-md-6 mb-3'>"
+						+ "<label for='cod-prod'>Codice: </label>"
+						+ "<input type='text' class='form-control' id='cod-prod' name='cod-prod' required>"
+					+ "</div>"
+					+ "<div class='col-md-6 mb-3'>"
 						+ "<label for='costo'>Costo: </label>"
 						+ "<input type='text' class='form-control' id='costo' name='costo' required>"
 					+ "</div>"
-					 "<div class='col-md-6 mb-3'>"
-					+ "<label for='cod-prod'>Codice Originale: </label>"
-					+ "<input type='text' class='form-control' id='cod-prod' name='cod-prod' required>"
-				+ "</div>"
 					+ "<div class='col-md-6 mb-3'>"
 						+ "<label for='quantita-prod'>Quantità: </label>"
 						+ "<input type='text' class='form-control' id='quantita-prod' name='quantita-prod' required>"
 					+ "</div>"
 				+ "</div>"
 				+ "<br/>");
+			//$('#nome-prod').val('');
+			//$('#costo').val('1000');
+			//$('#durata').val('1000');
 		}});
 		
 	});
 });
+
 </script>
+
 </head>
 <body>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
@@ -148,7 +159,7 @@ $(document).ready(function () {
 					<select name="tipo" id="tipo" class=' col-md-6 mb-3 form-control '>
 						<option value="null" selected>-</option>
 						<option value="videogioco">videogioco</option>
-						<option value="prodotto">Prodotto</option>
+						<option value="prodotto">prodotto</option>
 					</select>
 				</div>
 				<div id="videogSel" style="display:none">
@@ -164,7 +175,7 @@ $(document).ready(function () {
 					</select>
 				</div>
 				<div id="prodSel" style="display:none">
-					<label for="prodSelect">Scegli prodotto:</label>
+					<label for="prodSelect">Scegli Prodotto:</label>
 					<select name="prodSelect" id="prodSelect" class=' col-md-6 mb-3 form-control '>
 						<%
 							for(ProdottoFisicoBean prodBean: colProd){

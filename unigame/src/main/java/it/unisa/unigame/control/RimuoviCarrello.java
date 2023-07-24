@@ -29,8 +29,8 @@ public class RimuoviCarrello extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Carrello carrello = (Carrello)request.getSession().getAttribute("carrello");
-		int id =(int) request.getSession().getAttribute("id");
-		String tipo= (String) request.getSession().getAttribute("tipo");
+		int id =(int) request.getAttribute("id");
+		String tipo= (String) request.getAttribute("tipo");
 		
 		if(tipo.equals("videogame")) {
 			carrello.removeVideogame(id);
