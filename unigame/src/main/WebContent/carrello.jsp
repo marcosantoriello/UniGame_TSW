@@ -255,10 +255,10 @@
 			                    <p class="mb-0">(IVA inclusa)</p>
 			                  </strong>
 			                </div>
-			                 <%if (!prodotti.isEmpty()) { %>
+			                 <%if (!prodotti.isEmpty()) { %> <!-- Se c'e' almeno un prodotto fisico, paga spedizione -->
 			                <span><strong><%= (prodRel+vidRel+5.99f) %> &#8364</strong></span>
 			                <%} else {%>
-			                <span><strong><%=(vidRel) %> &#8364</strong></span>
+			                <span><strong><%=(vidRel) %> &#8364</strong></span> <!-- Altrimenti non paga la spedizione -->
 			                <%} %>
 			              </li>
 			            </ul>
