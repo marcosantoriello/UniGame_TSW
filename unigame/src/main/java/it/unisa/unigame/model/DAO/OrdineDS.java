@@ -214,48 +214,48 @@ public class OrdineDS implements Ordine{
 		return ordini;
 		
 	}
-	public Collection<OrdineBean> doRetrieveAllDate(LocalDateTime data1, LocalDateTime data2) throws SQLException {
+	public Collection<OrdineBean> doRetrieveAllDate(String first, String last) throws SQLException {
+		
+		Collection<OrdineBean> ordini = new LinkedList<>();
+		Connection connection = null;
+		PreparedStatement preparedStmt = null;
+		
+		String selectSQL = "SELECT * FROM " + OrdineDS.TABLE_NAME;
+		
+		if (first != null && last!= null && !first.equals("") && !last.equals("")) {
+			selectSQL += " WHERE data_e_ora >=" + first + " AND data_e_ora <=" + last;
+		}
+		
+		try {
+			connection = ds.getConnection();
+			preparedStmt = connection.prepareStatement(selectSQL);
 			
-			Collection<OrdineBean> ordini = new LinkedList<>();
-			Connection connection = null;
-			PreparedStatement preparedStmt = null;
-			
-			String selectSQL = "SELECT * FROM " + OrdineDS.TABLE_NAME;
-			
-			if (data1 != null && data2!= null && !data1.equals("") && !data2.equals("")) {
-				selectSQL += " WHERE data_e_ora >=" + data1 + "AND data_e_ora <=" + data2;
-			}
-			
-			try {
-				connection = ds.getConnection();
-				preparedStmt = connection.prepareStatement(selectSQL);
+			ResultSet rs = preparedStmt.executeQuery();
+			while (rs.next()) {
+				OrdineBean bean = new OrdineBean();
 				
-				ResultSet rs = preparedStmt.executeQuery();
-				while (rs.next()) {
-					OrdineBean bean = new OrdineBean();
-					
-					bean.setId(rs.getInt("id"));
-					bean.setCodice_fiscale(rs.getString("cliente"));
-					bean.setData_e_ora(rs.getTimestamp("data_e_ora").toLocalDateTime());
-					bean.setImporto_totale(rs.getFloat("importo_totale"));
-					bean.setNum_carta(rs.getLong("num_carta"));
-					
-					ordini.add(bean);
-				}
+				bean.setId(rs.getInt("id"));
+				bean.setCodice_fiscale(rs.getString("cliente"));
+				bean.setData_e_ora(rs.getTimestamp("data_e_ora").toLocalDateTime());
+				bean.setImporto_totale(rs.getFloat("importo_totale"));
+				bean.setNum_carta(rs.getLong("num_carta"));
+				
+				ordini.add(bean);
+			}
+		}
+		finally {
+			try {
+				if (preparedStmt != null)
+					preparedStmt.close();
 			}
 			finally {
-				try {
-					if (preparedStmt != null)
-						preparedStmt.close();
-				}
-				finally {
-					if (connection != null)
-						connection.close();
-				}
+				if (connection != null)
+					connection.close();
 			}
-			return ordini;
-			
 		}
+		return ordini;
+		
+	}
 	@Override
 	public OrdineBean doRetrieveByCf(String cf) throws SQLException {
 		

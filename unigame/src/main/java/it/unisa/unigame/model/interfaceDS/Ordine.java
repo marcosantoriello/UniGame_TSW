@@ -18,4 +18,7 @@ public interface Ordine {
 	public Collection<OrdineBean> doRetrieveAll(String orders) throws SQLException;
 	
 	public OrdineBean doRetrieveByCf(String cf) throws SQLException;
+	
+	public Collection<OrdineBean> doRetrieveAllDate(String first, String last) throws SQLException;
+	
 }
