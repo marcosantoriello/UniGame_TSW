@@ -176,7 +176,7 @@
 		         		 	<a class="nav-link" href="chiSiamo.jsp">Chi Siamo</a>
 		        		</li>
 		        		<li class="nav-item">
-		         		 	<a class="nav-link" href="chiSiamo.jsp">Staff</a> <!-- da cui si aggiungono/rimuovono assistenti e admin -->
+		         		 	<a class="nav-link" href="OrdiniAdmin.jsp">Staff</a> 
 		        		</li>
 		         		<li class="nav-item dropdown">
         					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
