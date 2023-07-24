@@ -256,5 +256,45 @@ public class OrdineDS implements Ordine{
 			return ordini;
 			
 		}
+	@Override
+	public OrdineBean doRetrieveByCf(String cf) throws SQLException {
+		
+		Connection connection = null;
+		PreparedStatement preparedStmt = null;
+		OrdineBean bean = new OrdineBean();
+		
+		String selectSQL = "SELECT * FROM " + OrdineDS.TABLE_NAME
+				+ " WHERE CLIENTE =  ?";
+		
+		try {
+			connection = ds.getConnection();
+			preparedStmt = connection.prepareStatement(selectSQL);
+			preparedStmt.setString(1, cf);
+			
+			ResultSet rs = preparedStmt.executeQuery();
+			while (rs.next()) {
+				bean.setId(rs.getInt("id"));
+				bean.setCodice_fiscale(rs.getString("cliente"));
+				bean.setData_e_ora(rs.getTimestamp("data_e_ora").toLocalDateTime());
+				bean.setImporto_totale(rs.getFloat("importo_totale"));
+				bean.setNum_carta(rs.getLong("num_carta"));
+			}
+		}
+		
+		finally {
+			try {
+				if (preparedStmt != null)
+					preparedStmt.close();
+			}
+			finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return bean;
+	}
+	
+	
+	
 }
 
