@@ -139,7 +139,7 @@
 			            					rimuoviElemento(vid.getId());
 			            			}
 			                    	
-			            			document.getElementById("form1").addEventListener('input', quantityProd);
+			            			document.getElementById("form1").addEventListener('input', quantityVid);
 			                    </script>
 			                    <label class="form-label" for="form1">Quantit&agrave</label>
 			                  </div>
@@ -203,7 +203,7 @@
 			            					rimuoviElemento(vid.getId());
 			            			}
 			                    	
-			            			document.getElementById("form1").addEventListener('input', quantityProd);
+			            			document.getElementById("form1").addEventListener('form1', quantityVid);
 			                    </script>
 			                    <label class="form-label" for="form1">Quantit&agrave</label>
 			                  </div>

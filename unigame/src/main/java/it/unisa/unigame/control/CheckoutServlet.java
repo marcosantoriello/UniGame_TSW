@@ -6,6 +6,7 @@ import java.security.SecureRandom;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.Random;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -79,11 +80,11 @@ public class CheckoutServlet extends HttpServlet {
     	int id = (int) (Math.random() * (max - min)) + min;
     	
     	//genero l'id  lo converto in int
-    	String random = creaIdOrdine(4);
-    	int idOrder= Integer.parseInt(random);
+    	int random = creaIdOrdine();
     	beanOrder.setCodice_fiscale(cf);
     	beanOrder.setNum_carta(numCarta);
     	beanOrder.setImporto_totale(totale);
+    	beanOrder.setId(random);
     	beanOrder.setData_e_ora(LocalDateTime.now());
     	
     	try {
@@ -97,9 +98,12 @@ public class CheckoutServlet extends HttpServlet {
 			try {
 				//per ogni prodottofisico acquistato, crea una query in COMPRENDEOPDS
 				
-				beanOP.setOrdine(idOrder);
+				beanOP.setOrdine(random);
 				beanOP.setProdotto(prod.getId());
 				prodDS.doSave(beanOP);
+				prod.setQuantità((prod.getQuantità()-1));
+				if(prod.getQuantità()==0)
+					prod.setDisponibilità(false);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -109,9 +113,12 @@ public class CheckoutServlet extends HttpServlet {
 			try {
 				//per ogni videgioco acquistato, crea una query in COMPRENDEOVDS
 				
-				beanOV.setOrdine(idOrder);
+				beanOV.setOrdine(random);
 				beanOV.setVideogioco(vid.getId());
 				vidDS.doSave(beanOV);
+				vid.setQuantità((vid.getQuantità()-1));
+				if(vid.getQuantità()==0)
+					vid.setDisponibilità(false);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -129,16 +136,14 @@ public class CheckoutServlet extends HttpServlet {
 			response.sendRedirect(request.getContextPath()+"/Fattura.jsp");
 		}
 		
-		request.getSession().setAttribute("idAcquisto", id);
-		response.sendRedirect(request.getContextPath()+"/thankyouPage.jsp");
+	
+		response.sendRedirect(request.getContextPath()+"/ThankYouPage.jsp");
 		
 	}
 	
-	public static String creaIdOrdine(int byteLength) {
-        SecureRandom secureRandom = new SecureRandom();
-        byte[] token = new byte[byteLength];
-        secureRandom.nextBytes(token);
-        return new BigInteger(1, token).toString(16); // Hexadecimal encoding
-    }
+	public static int creaIdOrdine() {
+		Random random = new Random();
+        return random.nextInt(900) + 100;
+	}
 
 }
