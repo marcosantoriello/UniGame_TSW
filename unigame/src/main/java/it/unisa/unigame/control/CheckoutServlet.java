@@ -129,6 +129,7 @@ public class CheckoutServlet extends HttpServlet {
 		request.getSession().setAttribute("carrello", new Carrello(ds));
 		
 		//PER LA FATTURA CI FACCIAMO PASSARE UN PARAMETRO DALLA JSP PER VEDERE SE VUOLE LA FATTURA O MENO
+		System.out.println("fatturaaa"+request.getAttribute("fattura"));
 		if(request.getSession().getAttribute("fattura").equals(true)) {
 			request.getSession().setAttribute("ordine", beanOrder);
 			request.getSession().setAttribute("op", prodotti);

@@ -22,6 +22,17 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="img/icon/favicon.png">
 	</head>
 	<body>
+	<script> function datiFattura() { 
+		// Ottieni il riferimento al checkbox var
+		checkbox = document.getElementById("fattura"); 
+	// Controlla lo stato del checkbox e imposta il valore corrispondente
+	if (checkbox.checked) {
+		checkbox.value = "true"; // Se il checkbox è selezionato, imposta il valore a "true" 
+		} 
+	else { checkbox.value = "false"; // Se il checkbox non è selezionato, imposta il valore a "false" 
+	} } 
+	</script>
+	
 	
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 	
@@ -86,7 +97,7 @@
 					</div>
 					
 					<div class="row">
-						<div class="col-md-6 mb-3"><input type="checkbox" name="fattura" id="fattura" onclick="Fattura()"> Richiedi fattura  </div>
+						<div class="col-md-6 mb-3"><input type="checkbox" name="fattura" id="fattura" onclick="datiFattura()"> Richiedi fattura  </div>
 					</div>
 					<div id="datiFattura">
 					
