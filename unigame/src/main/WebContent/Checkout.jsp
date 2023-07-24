@@ -96,12 +96,8 @@
 						<div class="col-md-6 mb-3"> Indirizzo di fatturazione <%=cliente.getInd_fatturazione() %></div>
 					</div>
 					
-					<div class="row">
-						<div class="col-md-6 mb-3"><input type="checkbox" name="fattura" id="fattura" onclick="datiFattura()"> Richiedi fattura  </div>
-					</div>
-					<div id="datiFattura">
+					<
 					
-					</div>
 					
 					<div class="row">
 						<div class="col-md-6 mb-3" > Se vuoi modificare i dati personali, <a href="utentePage.jsp">clicca qui</a>  </div>

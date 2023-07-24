@@ -129,11 +129,11 @@ public class CheckoutServlet extends HttpServlet {
 		request.getSession().setAttribute("carrello", new Carrello(ds));
 		
 		//PER LA FATTURA CI FACCIAMO PASSARE UN PARAMETRO DALLA JSP PER VEDERE SE VUOLE LA FATTURA O MENO
-			request.setAttribute("ordine", beanOrder);
-			request.setAttribute("op", prodotti);
-			request.setAttribute("ov", videogiochi);
-			response.sendRedirect(request.getContextPath()+"/Fattura.jsp");
-			//response.sendRedirect(request.getContextPath()+"/ThankYouPage.jsp");
+			//request.setAttribute("ordine", beanOrder);
+			//request.setAttribute("op", prodotti);
+			//request.setAttribute("ov", videogiochi);
+			//response.sendRedirect(request.getContextPath()+"/Fattura.jsp");
+			response.sendRedirect(request.getContextPath()+"/ThankYouPage.jsp");
 		
 	}
 	

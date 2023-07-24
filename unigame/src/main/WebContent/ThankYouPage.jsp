@@ -24,7 +24,7 @@
                 </div>
                 <div class="text-center">
                     <h1>Grazie!</h1>
-                    <p>Ti abbiamo inviato un'email di conferma </p>
+                    <p>Ti abbiamo inviato un'email contenente il codice di attivazione e/o i dettagli sulla spedizione dei tuoi prodotti. </p>
                     <a href="index.jsp"><b>Home</b></a>
                 </div>
             </div>
