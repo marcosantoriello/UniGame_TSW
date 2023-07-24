@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Collection;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 import it.unisa.unigame.model.DAO.OrdineDS;
-import it.unisa.unigame.model.bean.ClienteBean;
 import it.unisa.unigame.model.bean.OrdineBean;
 import it.unisa.unigame.model.interfaceDS.Ordine;
 
@@ -38,21 +36,22 @@ public class OrdiniAdminServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
-		ClienteBean clBean = (ClienteBean) request.getSession().getAttribute("utente");
 		String first = request.getParameter("first");
+		System.out.println("First: " + first);
 		String last = request.getParameter("last");
-		
+		System.out.println("Last: " + last);
 		Ordine ordini = new OrdineDS(ds);
 		Collection<OrdineBean> colAcq = null;
 		try {
-			colAcq = ordini.doRetrieveAllDate( first, last);
+			colAcq = ordini.doRetrieveAllDate(first, last);
+			System.out.println(colAcq.toString());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		response.setContentType("text/html");
 		request.setAttribute("orderList", colAcq);
-		request.getRequestDispatcher("Ordini.jsp").forward(request, response);
+		request.getRequestDispatcher("OrdiniAdmin.jsp").forward(request, response);
 	}
 
 	/**

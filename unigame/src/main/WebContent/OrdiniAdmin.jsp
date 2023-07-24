@@ -1,21 +1,23 @@
-<%@ page language="java" import = "javax.sql.DataSource,java.time.format.DateTimeFormatter, java.time.LocalDateTime,java.util.*,it.unisa.unigame.model.DAO.OrdineDS,it.unisa.unigame.model.interfaceDS.Ordine,it.unisa.unigame.model.bean.OrdineBean,it.unisa.unigame.model.interfaceDS.Ordine" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-
-<%
-	String ruolo = (String) session.getAttribute("ruolo");
-	if (ruolo != "admin") {
-
-		response.sendRedirect(request.getContextPath() + "/errorPage.jsp");
-
-		}
-	DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
-	Ordine ordineDS = new OrdineDS(ds);
-	Collection<OrdineBean> ordiniData= (Collection<OrdineBean>)ordineDS.doRetrieveAll("data_e_ora");
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+	import="javax.sql.DataSource, it.unisa.unigame.model.bean.*, it.unisa.unigame.model.DAO.*, it.unisa.unigame.model.interfaceDS.*,
+	java.util.*, java.time.format.DateTimeFormatter, java.time.LocalDateTime"
+%>    
+    
+   <%
 	
+	DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
+   	String ruolo = (String) session.getAttribute("ruolo");
+   	if(ruolo == null){
+		response.sendRedirect(request.getContextPath() + "/loginPage.jsp");
+	} else if(ruolo.equals("cliente")){
+		response.sendRedirect(request.getContextPath() + "/Catalogo.jsp");
+	}
+   	OrdineDS ordineDS = new OrdineDS(ds);
+   	Collection<OrdineBean> colOrd= ordineDS.doRetrieveAll("data_ora");
+   	Videogioco vidDS = new VideogiocoDS(ds);
+	Collection<VideogiocoBean> colVid = vidDS.doRetrieveAll(null);
 	
 	final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-	
 	
 %>
 
@@ -23,7 +25,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>I miei ordini</title>
+<title>Gestione Ordini</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="icon" type="image/png" sizes="32x32" href="img/icon/favicon.png">
 <link href="style/style.css" rel="stylesheet">
@@ -36,9 +38,9 @@
 	<div id="pagina">
 		<%@ include file="/fragments/headerNuovo.jsp" %>
 		<div class="container page">
-			<h2>I miei ordini</h2>
+			<h2>Ordini</h2>
 			<br/>
-			<form action="FiltraOrdiniData" method="post">
+			<form action="OrdiniAdminServlet" method="post">
 				<div class="col-md-2 mb-3">
 					<label for="first">Da:</label>
 					<input id="first" type="date" name="first" class="form-control" placeholder="first" required>
@@ -62,29 +64,28 @@
 					<%
 						Collection<OrdineBean> colAcqByData = (Collection<OrdineBean>) request.getAttribute("orderList");
 						if(colAcqByData == null){
-							for(OrdineBean acq: ordiniData){
+							for(OrdineBean ord: colOrd){
 					%>
 					
-					<tr id = "<%= acq.getId() %>">
+					<tr id = "<%= ord.getId() %>">
 						
-						<td><%= acq.getId() %></td>
-						<td><%= acq.getData_e_ora().format(dtf) %></td>
-						<td><%=acq.getImporto_totale() %>&euro;</td>
+						<td><%= ord.getId() %></td>
+						<td><%= ord.getImporto_totale() %></td>
+						<td><%= ord.getData_e_ora().format(dtf) %></td>
+					
 					</tr>
 					
 					<%
 							}
 						} else {
 							if(colAcqByData.size() > 0){
-								for(OrdineBean acq: colAcqByData){
+								for(OrdineBean ord: colOrd){
 								
 					%>
-					<tr id = "<%= acq.getId() %>">
-						
-						<td><%= acq.getId() %></td>
-						<td><%= acq.getData_e_ora().format(dtf) %></td>
-						<td><%=acq.getImporto_totale() %>&euro;</td>
-						
+					<tr id = "<%= ord.getId() %>">
+						<td><%= ord.getImporto_totale() %></td>
+						<td><%= ord.getData_e_ora().format(dtf) %></td>
+					
 					</tr>
 					<%
 								}
@@ -100,8 +101,7 @@
 					<%
 								
 							}
-						}	
-							
+						}							
 					%>
 				</tbody>
 				
