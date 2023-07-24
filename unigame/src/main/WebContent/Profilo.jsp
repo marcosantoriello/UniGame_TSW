@@ -11,14 +11,10 @@
 	</head>
 	
 	<body>
+	
 		<script src="script/jquery-3.6.0.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-		<script>
-			function redirectToJSP(var page){
-				window.location.href=page;
-			}
 		
-		</script>
 		
 		<%@include file="/fragments/headerNuovo.jsp"  %>
 		
@@ -43,10 +39,11 @@
 		          <div class="card-body text-center">
 		            <img src="images/avatar.jpg" alt="avatar"
 		              class="rounded-circle img-fluid" style="width: 150px;">
-		            <h5 class="my-3">John Smith</h5>
+		            <h5 class="my-3"><%=utente.getNome() %><%=utente.getCognome() %></h5>
 		             <div class="d-flex justify-content-center mb-2">
-		              <button type="button" class="btn btn-primary" onclick="redirectToJSP(OrdiniEffettuati.jsp)">I miei ordini</button>
-		              <button type="button" class="btn btn-primary ms-2" onclick="redirectToJSP(Fatture.jsp)">Le mie fatture</button>
+		             
+		              <a href="Ordini.jsp" class="btn btn-primary"> I miei ordini </a>
+		              
 		            </div>
 		          </div>
 		        </div>
